@@ -28,6 +28,10 @@ export default function App() {
     initGoogleTranslate();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
+
   const handleSetLang = (newLang: 'it' | 'fr') => {
     setLang(newLang);
     setGoogleTranslateLang(newLang);
