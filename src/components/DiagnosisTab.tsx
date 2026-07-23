@@ -6,7 +6,7 @@ import { Activity, AlertTriangle, Eye, RefreshCw, Zap, Sparkles, ChevronDown, Ch
 import { motion, AnimatePresence } from 'motion/react';
 
 interface DiagnosisTabProps {
-  lang: 'it' | 'en';
+  lang: 'it' | 'fr';
 }
 
 export const DiagnosisTab: React.FC<DiagnosisTabProps> = ({ lang }) => {
@@ -34,23 +34,23 @@ export const DiagnosisTab: React.FC<DiagnosisTabProps> = ({ lang }) => {
   };
 
   return (
-    <div className="space-y-6 pb-24">
+    <div className="space-y-6">
       {/* Intro Header */}
       <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/30 relative overflow-hidden">
         <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#C5A059]/10 rounded-full blur-xl pointer-events-none"></div>
         <div className="flex items-center space-x-2 text-[#C5A059] mb-1.5">
           <Activity className="w-5 h-5 animate-pulse" />
           <span className="font-serif-heading font-bold text-xs uppercase tracking-widest">
-            {lang === 'it' ? 'Diagnosi Energetica Quantitativa' : 'Quantitative Energy Diagnosis'}
+            {lang === 'it' ? 'Diagnosi Energetica Quantitativa' : 'Diagnostic Énergétique Quantitatif'}
           </span>
         </div>
         <h2 className="font-serif-heading text-xl text-[#2D3436] font-extrabold uppercase tracking-tight">
-          {lang === 'it' ? 'Analisi del Blocco di Mahdi' : 'Mahdi\'s Blockage Analysis'}
+          {lang === 'it' ? 'Analisi del Blocco di Mahdi' : 'Analyse du Blocage de Mahdi'}
         </h2>
         <p className="text-xs text-[#2D3436]/80 mt-2 leading-relaxed">
           {lang === 'it'
             ? 'Mahdi presenta un "Incatenamento Saturnino". L\'energia vitale che dovrebbe fluire spontaneamente verso l\'intimità e il futuro con Sara è coartata e drenata dai doveri primordiali verso la famiglia.'
-            : 'Mahdi exhibits a "Saturnine Entanglement". Energy that should flow towards Sara is trapped by family obligations.'}
+            : 'Mahdi présente un "Enchaînement Saturnien". L\'énergie vitale qui devrait couler naturellement vers Sara est drainée par les devoirs envers le clan familial.'}
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export const DiagnosisTab: React.FC<DiagnosisTabProps> = ({ lang }) => {
           <div className="flex items-center space-x-2">
             <Eye className="w-4 h-4 text-[#C5A059]" />
             <span className="font-serif-heading text-xs font-bold uppercase tracking-wider text-[#2D3436]">
-              {lang === 'it' ? 'Mappa dei Flussi Aurici' : 'Auric Map Radar'}
+              {lang === 'it' ? 'Mappa dei Flussi Aurici' : 'Carte des Flux Auriques'}
             </span>
           </div>
 
@@ -73,7 +73,7 @@ export const DiagnosisTab: React.FC<DiagnosisTabProps> = ({ lang }) => {
                   : 'bg-[#F4EFE6] text-[#2D3436] border-[#C5A059]/30'
               }`}
             >
-              {showTargetData ? (lang === 'it' ? '✓ Confronto Attivo' : '✓ Compare On') : (lang === 'it' ? '+ Confronta Target' : '+ Compare Target')}
+              {showTargetData ? (lang === 'it' ? '✓ Confronto Attivo' : '✓ Comparaisons') : (lang === 'it' ? '+ Confronta Target' : '+ Comparer Cible')}
             </button>
           </div>
         </div>
@@ -82,12 +82,12 @@ export const DiagnosisTab: React.FC<DiagnosisTabProps> = ({ lang }) => {
         <div className="flex justify-center space-x-6 text-[10px] font-medium mb-2">
           <div className="flex items-center space-x-1.5">
             <span className="w-3 h-3 rounded-full bg-[#A93226]"></span>
-            <span className="text-[#2D3436]">{lang === 'it' ? 'Stato Attuale (Bloccato)' : 'Current Blocked'}</span>
+            <span className="text-[#2D3436]">{lang === 'it' ? 'Stato Attuale (Bloccato)' : 'État Actuel (Bloqué)'}</span>
           </div>
           {showTargetData && (
             <div className="flex items-center space-x-1.5">
               <span className="w-3 h-3 rounded-full bg-[#C5A059]"></span>
-              <span className="text-[#2D3436]">{lang === 'it' ? 'Target Post-Rituale' : 'Target Post-Ritual'}</span>
+              <span className="text-[#2D3436]">{lang === 'it' ? 'Target Post-Rituale' : 'Cible Post-Rituel'}</span>
             </div>
           )}
         </div>

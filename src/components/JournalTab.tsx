@@ -4,7 +4,7 @@ import { BookOpen, Plus, Trash2, Calendar, Tag, Sparkles, Lock, Save, FileText }
 import { motion, AnimatePresence } from 'motion/react';
 
 interface JournalTabProps {
-  lang: 'it' | 'en';
+  lang: 'it' | 'fr';
 }
 
 export const JournalTab: React.FC<JournalTabProps> = ({ lang }) => {
@@ -21,18 +21,18 @@ export const JournalTab: React.FC<JournalTabProps> = ({ lang }) => {
       {
         id: '1',
         date: new Date().toISOString().split('T')[0],
-        title: lang === 'it' ? 'Apertura fascicolo e primo riscontro da Sara' : 'Case setup and Sara\'s initial feedback',
+        title: lang === 'it' ? 'Apertura fascicolo e primo riscontro da Sara' : 'Ouverture du dossier et premier retour de Sara',
         content: lang === 'it'
           ? 'Colloquio con la richiedente Sara Ouachtouk. Confermati i sintomi di distacco emotivo improvviso in Mahdi a seguito dell\'influenza familiare. Predisposta la schermatura per la Fase I (23 Luglio).'
-          : 'Consultation with requester Sara Ouachtouk. Confirmed sudden emotional distance symptoms in Mahdi following family influence. Phase I shielding prepared for July 23.',
-        tags: ['Operatore', 'Analisi Caso']
+          : 'Consultation avec la demandesse Sara Ouachtouk. Confirmation du détachement émotionnel soudain chez Mahdi suite à l\'influence familiale. Mise en place du bouclier pour la Phase I (23 Juillet).',
+        tags: ['Opérateur', 'Analyse']
       }
     ];
   });
 
   const [newTitle, setNewTitle] = useState('');
   const [newContent, setNewContent] = useState('');
-  const [selectedTag, setSelectedTag] = useState('Osservazione');
+  const [selectedTag, setSelectedTag] = useState('Observation');
   const [showAddModal, setShowAddModal] = useState(false);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const JournalTab: React.FC<JournalTabProps> = ({ lang }) => {
 
     const entry: JournalEntry = {
       id: Date.now().toString(),
-      date: new Date().toLocaleDateString('it-IT'),
+      date: new Date().toLocaleDateString(lang === 'it' ? 'it-IT' : 'fr-FR'),
       title: newTitle.trim(),
       content: newContent.trim(),
       tags: [selectedTag]
@@ -62,34 +62,34 @@ export const JournalTab: React.FC<JournalTabProps> = ({ lang }) => {
   };
 
   return (
-    <div className="space-y-6 pb-24">
+    <div className="space-y-6">
       {/* Header */}
       <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/30 relative overflow-hidden">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 text-[#C5A059]">
             <BookOpen className="w-5 h-5" />
             <span className="font-serif-heading font-bold text-xs uppercase tracking-widest">
-              {lang === 'it' ? 'Diario dell\'Operatore Esoterico' : 'Operator Case Log'}
+              {lang === 'it' ? 'Diario dell\'Operatore Esoterico' : 'Journal de l\'Opérateur Ésotérique'}
             </span>
           </div>
 
           <span className="text-[10px] font-bold bg-[#C5A059]/20 text-[#C5A059] px-2.5 py-0.5 rounded-full border border-[#C5A059]/30 flex items-center space-x-1">
             <Lock className="w-3 h-3" />
-            <span>{lang === 'it' ? 'Riservato Operatore' : 'Operator Private'}</span>
+            <span>{lang === 'it' ? 'Riservato Operatore' : 'Réservé Opérateur'}</span>
           </span>
         </div>
 
         <h2 className="font-serif-heading text-xl text-[#2D3436] font-extrabold uppercase tracking-tight mt-2">
-          {lang === 'it' ? 'Note & Monitoraggio Operatore' : 'Operator\'s Case Journal'}
+          {lang === 'it' ? 'Note & Monitoraggio Operatore' : 'Notes & Suivi de l\'Opérateur'}
         </h2>
         <div className="mt-1 text-xs text-[#2D3436]/90 space-y-1">
           <p className="font-medium bg-[#F4EFE6] px-2.5 py-1 rounded border border-[#C5A059]/20 inline-block text-[11px]">
-            <strong>Richiedente:</strong> Sara Ouachtouk &nbsp;|&nbsp; <strong>Soggetto:</strong> Mahdi
+            <strong>{lang === 'it' ? 'Richiedente:' : 'Demandeur :'}</strong> Sara Ouachtouk &nbsp;|&nbsp; <strong>{lang === 'it' ? 'Soggetto:' : 'Sujet :'}</strong> Mahdi
           </p>
           <p className="text-[11px] text-[#2D3436]/80 leading-relaxed mt-1">
             {lang === 'it'
               ? 'Diario di lavoro ad uso esclusivo dell\'Operatore per registrare osservazioni clinico-rituali, segnali inviati da Sara e riscontri comportamentali di Mahdi durante i 36 giorni.'
-              : 'Working log for the Operator to record clinical-ritual observations and behavioral progress.'}
+              : 'Journal de travail à l\'usage exclusif de l\'Opérateur pour consigner les observations clinico-rituelles et les retours comportementaux.'}
           </p>
         </div>
 
@@ -99,7 +99,7 @@ export const JournalTab: React.FC<JournalTabProps> = ({ lang }) => {
           className="mt-4 w-full py-2.5 bg-[#2D3436] text-[#FDFBF7] rounded-xl font-serif-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center space-x-2 shadow hover:bg-[#C5A059] transition"
         >
           <Plus className="w-4 h-4 text-[#C5A059]" />
-          <span>{lang === 'it' ? 'Nuova Annotazione dell\'Operatore' : 'New Operator Note'}</span>
+          <span>{lang === 'it' ? 'Nuova Annotazione dell\'Operatore' : 'Nouvelle Annotation de l\'Opérateur'}</span>
         </button>
       </div>
 

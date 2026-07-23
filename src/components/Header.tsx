@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { TabType } from '../types';
 import { PROTOCOL_INFO } from '../data/mockData';
-import { Shield, Sparkles, Info, FileText, ChevronRight, X, User, HeartHandshake, Menu, Activity, Calendar, ShieldAlert, CreditCard, BookOpen, Globe, Feather } from 'lucide-react';
+import { Shield, Sparkles, Info, FileText, ChevronRight, X, User, HeartHandshake, Menu, Activity, Calendar, ShieldAlert, CreditCard, BookOpen, Globe, Feather, Printer, Lock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface HeaderProps {
   currentTab: TabType;
   setActiveTab: (tab: TabType) => void;
   onOpenFullDossier: () => void;
-  lang: 'it' | 'en';
-  setLang: (lang: 'it' | 'en') => void;
+  lang: 'it' | 'fr';
+  setLang: (lang: 'it' | 'fr') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpenFullDossier, lang, setLang }) => {
@@ -19,38 +19,38 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
   const menuItems = [
     {
       id: 'diagnosi' as TabType,
-      title: lang === 'it' ? 'Diagnosi Energetica' : 'Energy Diagnosis',
-      subtitle: lang === 'it' ? 'Analisi dei 7 Centri e del blocco di Mahdi' : 'Mahdi\'s 7 centers and blockage',
+      title: lang === 'it' ? 'Diagnosi Energetica' : 'Diagnostic Énergétique',
+      subtitle: lang === 'it' ? 'Analisi dei 7 Centri e del blocco di Mahdi' : 'Analyse des 7 centres et du blocage de Mahdi',
       icon: Activity,
     },
     {
       id: 'cronoprogramma' as TabType,
-      title: lang === 'it' ? 'Cronoprogramma Lunare' : 'Lunar Timeline',
-      subtitle: lang === 'it' ? 'Calendario dei rituali in 36 giorni' : '36-day ritual calendar',
+      title: lang === 'it' ? 'Cronoprogramma Lunare' : 'Calendrier Lunaire',
+      subtitle: lang === 'it' ? 'Calendario dei rituali in 36 giorni' : 'Planning des rituels sur 36 jours',
       icon: Calendar,
     },
     {
       id: 'etica' as TabType,
-      title: lang === 'it' ? 'Etica & Rischi' : 'Ethics & Risk Matrix',
-      subtitle: lang === 'it' ? 'Protezione per Sara e contenimento' : 'Sara\'s protection & risk containment',
+      title: lang === 'it' ? 'Etica & Rischi' : 'Éthique & Matrice de Risques',
+      subtitle: lang === 'it' ? 'Protezione per Sara e contenimento' : 'Protection de Sara et confinement',
       icon: ShieldAlert,
     },
     {
       id: 'investimento' as TabType,
-      title: lang === 'it' ? 'Oneri & Prospetto Economico' : 'Financial Ledger',
-      subtitle: lang === 'it' ? 'Investimento 500€, acconti e ricevuta' : '€500 investment & receipts',
+      title: lang === 'it' ? 'Oneri & Prospetto Economico' : 'Frais & Bilan Financier',
+      subtitle: lang === 'it' ? 'Investimento 600€, acconti e ricevuta' : 'Investissement 600€, acompte et reçu',
       icon: CreditCard,
     },
     {
       id: 'diario' as TabType,
-      title: lang === 'it' ? 'Diario dell\'Operatore' : 'Operator\'s Journal',
-      subtitle: lang === 'it' ? 'Note riservate di monitoraggio dell\'Operatore' : 'Operator\'s confidential case notes',
+      title: lang === 'it' ? 'Diario dell\'Operatore' : 'Journal de l\'Opérateur',
+      subtitle: lang === 'it' ? 'Note riservate di monitoraggio dell\'Operatore' : 'Notes confidentielles de suivi de l\'Opérateur',
       icon: BookOpen,
     },
     {
       id: 'dossier' as TabType,
-      title: lang === 'it' ? 'Fascicolo Integrale' : 'Full Dossier',
-      subtitle: lang === 'it' ? 'Versione ufficiale stampabile in A4' : 'Printable A4 official document',
+      title: lang === 'it' ? 'Fascicolo Integrale' : 'Dossier Intégral',
+      subtitle: lang === 'it' ? 'Versione ufficiale stampabile in A4' : 'Version officielle imprimable A4',
       icon: FileText,
     },
   ];
@@ -66,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-[#C5A059]/20 px-4 py-3 transition-all">
+      <header className="sticky top-0 z-40 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-[#C5A059]/20 px-4 py-3 transition-all print:hidden">
         <div className="max-w-md mx-auto flex items-center justify-between">
           
           {/* Hamburger Menu Trigger */}
@@ -87,20 +87,21 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
               </div>
               <p className="text-[10px] text-[#2D3436]/70 font-medium truncate max-w-[160px]">
-                Richiedente: <strong className="text-gray-900">{PROTOCOL_INFO.clientName}</strong>
+                {lang === 'it' ? 'Richiedente:' : 'Demandeur :'} <strong className="text-gray-900">{PROTOCOL_INFO.clientName}</strong>
               </p>
             </div>
           </div>
 
           {/* Right Actions */}
           <div className="flex items-center space-x-1.5">
-            {/* Language Selector */}
+            {/* Print Button for current page */}
             <button
-              onClick={() => setLang(lang === 'it' ? 'en' : 'it')}
-              className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded bg-[#F4EFE6] text-[#2D3436] border border-[#C5A059]/30 hover:border-[#C5A059] transition"
-              title="Cambia Lingua / Switch Language"
+              onClick={() => window.print()}
+              className="p-1.5 rounded-full bg-[#F4EFE6] text-[#2D3436] hover:bg-[#C5A059] hover:text-white transition border border-[#C5A059]/20"
+              title={lang === 'it' ? 'Stampa Pagina Attuale' : 'Imprimer la Page Actuelle'}
+              aria-label="Stampa"
             >
-              {lang === 'it' ? '🇮🇹 IT' : '🇬🇧 EN'}
+              <Printer className="w-4 h-4" />
             </button>
 
             {/* Info Trigger */}
@@ -122,23 +123,12 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
             </button>
           </div>
         </div>
-
-        {/* Top Status Bar Sub-header */}
-        <div className="max-w-md mx-auto mt-2 pt-1.5 border-t border-[#C5A059]/10 flex justify-between items-center text-[10px]">
-          <div className="flex items-center space-x-1.5 text-amber-800 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
-            <Sparkles className="w-3 h-3 text-amber-600" />
-            <span className="font-semibold">{lang === 'it' ? 'Stato:' : 'Status:'} {PROTOCOL_INFO.status}</span>
-          </div>
-          <div className="text-emerald-800 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 font-medium">
-            {lang === 'it' ? 'Probabilità:' : 'Probability:'} <strong className="font-serif-heading">{PROTOCOL_INFO.probability}</strong>
-          </div>
-        </div>
       </header>
 
       {/* Hamburger Drawer Menu Overlay */}
       <AnimatePresence>
         {showHamburgerMenu && (
-          <div className="fixed inset-0 z-50 flex justify-start bg-black/60 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex justify-start bg-black/60 backdrop-blur-sm print:hidden">
             {/* Click outside to close */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -181,29 +171,68 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                   </button>
                 </div>
 
+                {/* Language Switcher inside Drawer */}
+                <div className="mt-3 p-2.5 bg-black/40 rounded-xl border border-white/10 flex items-center justify-between text-xs">
+                  <span className="text-gray-300 font-medium flex items-center space-x-1.5 text-[11px]">
+                    <Globe className="w-3.5 h-3.5 text-[#C5A059]" />
+                    <span>{lang === 'it' ? 'Lingua:' : 'Langue :'}</span>
+                  </span>
+                  <div className="flex space-x-1 bg-white/10 p-1 rounded-lg">
+                    <button
+                      onClick={() => setLang('it')}
+                      className={`px-2.5 py-1 rounded text-[10px] font-bold uppercase transition ${
+                        lang === 'it' ? 'bg-[#C5A059] text-white shadow' : 'text-gray-400 hover:text-white'
+                      }`}
+                    >
+                      🇮🇹 IT
+                    </button>
+                    <button
+                      onClick={() => setLang('fr')}
+                      className={`px-2.5 py-1 rounded text-[10px] font-bold uppercase transition ${
+                        lang === 'fr' ? 'bg-[#C5A059] text-white shadow' : 'text-gray-400 hover:text-white'
+                      }`}
+                    >
+                      🇫🇷 FR
+                    </button>
+                  </div>
+                </div>
+
                 {/* Role Breakdown Box */}
-                <div className="mt-4 p-3 bg-black/40 rounded-xl border border-[#C5A059]/30 text-[11px] space-y-1.5">
+                <div className="mt-3 p-3 bg-black/40 rounded-xl border border-[#C5A059]/30 text-[11px] space-y-1.5">
                   <div className="flex justify-between items-center text-gray-300">
-                    <span className="text-gray-400">Richiedente:</span>
+                    <span className="text-gray-400">{lang === 'it' ? 'Richiedente:' : 'Demandeur :'}</span>
                     <strong className="text-amber-300 font-serif-heading">{PROTOCOL_INFO.clientName}</strong>
                   </div>
                   <div className="flex justify-between items-center text-gray-300">
-                    <span className="text-gray-400">Soggetto:</span>
+                    <span className="text-gray-400">{lang === 'it' ? 'Soggetto:' : 'Sujet :'}</span>
                     <strong className="text-white font-serif-heading">{PROTOCOL_INFO.targetName}</strong>
                   </div>
                   <div className="flex justify-between items-center text-gray-300 pt-1 border-t border-white/10">
                     <span className="text-gray-400 flex items-center space-x-1">
                       <Feather className="w-3 h-3 text-[#C5A059]" />
-                      <span>Autore Diario:</span>
+                      <span>{lang === 'it' ? 'Autore Diario:' : 'Auteur Journal :'}</span>
                     </span>
-                    <strong className="text-[#C5A059]">L'Operatore</strong>
+                    <strong className="text-[#C5A059]">{lang === 'it' ? 'L\'Operatore' : 'L\'Opérateur'}</strong>
                   </div>
                 </div>
 
+                {/* Privacy & Security Disclaimer in Drawer */}
+                <div className="mt-3 p-3 bg-amber-950/40 rounded-xl border border-[#C5A059]/40 text-[10px] text-amber-200/90 leading-relaxed space-y-1">
+                  <div className="flex items-center space-x-1.5 font-bold uppercase tracking-wider text-[#C5A059]">
+                    <Lock className="w-3.5 h-3.5" />
+                    <span>{lang === 'it' ? 'Accesso Riservato Cifrato' : 'Accès Réservé Chiffré'}</span>
+                  </div>
+                  <p>
+                    {lang === 'it'
+                      ? 'L\'accesso a questo link applicativo è strettamente privato. È in possesso esclusivo dell\'Operatore e della cliente Sara Ouachtouk.'
+                      : 'L\'accès à ce lien applicatif est strictement privé. Il est en possession exclusive de l\'Opérateur et de la cliente Sara Ouachtouk.'}
+                  </p>
+                </div>
+
                 {/* Nav Links */}
-                <div className="mt-5 space-y-1.5">
+                <div className="mt-4 space-y-1.5">
                   <span className="text-[9px] font-bold uppercase tracking-widest text-gray-400 px-2 block mb-1">
-                    {lang === 'it' ? 'Sezioni del Fascicolo' : 'Dossier Sections'}
+                    {lang === 'it' ? 'Sezioni del Fascicolo' : 'Sections du Dossier'}
                   </span>
 
                   {menuItems.map((item) => {
@@ -245,7 +274,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                   className="w-full py-2 bg-white/5 border border-white/10 hover:bg-white/10 text-gray-200 rounded-lg text-xs font-semibold uppercase flex items-center justify-center space-x-2"
                 >
                   <Info className="w-4 h-4 text-[#C5A059]" />
-                  <span>{lang === 'it' ? 'Info e Contesto' : 'Protocol Context'}</span>
+                  <span>{lang === 'it' ? 'Info e Contesto' : 'Info & Contexte'}</span>
                 </button>
 
                 <p className="text-[9px] text-gray-500 text-center italic font-cursive">
@@ -260,7 +289,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
       {/* Info Drawer Modal */}
       <AnimatePresence>
         {showInfoModal && (
-          <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-0 sm:p-4">
+          <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-0 sm:p-4 print:hidden">
             <motion.div
               initial={{ y: '100%', opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -287,36 +316,49 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                 <div className="bg-[#F4EFE6] p-3 rounded-lg border border-[#C5A059]/20">
                   <div className="flex items-center space-x-2 text-[#C5A059] font-bold mb-1">
                     <User className="w-4 h-4" />
-                    <span>{lang === 'it' ? 'Anagrafica Protocollo' : 'Protocol Context'}</span>
+                    <span>{lang === 'it' ? 'Anagrafica Protocollo' : 'Données du Protocole'}</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-[11px] mt-2">
                     <div>
-                      <span className="text-gray-500 block">{lang === 'it' ? 'Richiedente / Committente:' : 'Requester / Client:'}</span>
+                      <span className="text-gray-500 block">{lang === 'it' ? 'Richiedente / Committente:' : 'Demandeur / Cliente :'}</span>
                       <strong className="text-gray-900">{PROTOCOL_INFO.clientName}</strong>
                     </div>
                     <div>
-                      <span className="text-gray-500 block">{lang === 'it' ? 'Soggetto d\'Indagine:' : 'Subject:'}</span>
+                      <span className="text-gray-500 block">{lang === 'it' ? 'Soggetto d\'Indagine:' : 'Sujet d\'Étude :'}</span>
                       <strong className="text-gray-900">{PROTOCOL_INFO.targetName}</strong>
                     </div>
                     <div>
-                      <span className="text-gray-500 block">{lang === 'it' ? 'Redattore Diario:' : 'Journal Author:'}</span>
-                      <strong className="text-gray-900">L'Operatore</strong>
+                      <span className="text-gray-500 block">{lang === 'it' ? 'Redattore Diario:' : 'Rédacteur du Journal :'}</span>
+                      <strong className="text-gray-900">{lang === 'it' ? 'L\'Operatore' : 'L\'Opérateur'}</strong>
                     </div>
                     <div>
-                      <span className="text-gray-500 block">{lang === 'it' ? 'Codice Archiviazione:' : 'Protocol ID:'}</span>
+                      <span className="text-gray-500 block">{lang === 'it' ? 'Codice Archiviazione:' : 'Code d\'Archivage :'}</span>
                       <strong className="text-[#C5A059] font-mono">{PROTOCOL_INFO.code}</strong>
                     </div>
                   </div>
                 </div>
 
+                {/* Privacy Disclaimer Box */}
+                <div className="p-3 bg-stone-900 text-stone-100 rounded-lg text-xs leading-relaxed space-y-1 border border-[#C5A059]/40">
+                  <div className="flex items-center space-x-1.5 font-bold uppercase text-[#C5A059] text-[10px]">
+                    <Lock className="w-3.5 h-3.5 text-[#C5A059]" />
+                    <span>{lang === 'it' ? 'Garanzia di Riservatezza & Accesso Riservato' : 'Garantie de Confidentialité & Accès Réservé'}</span>
+                  </div>
+                  <p className="text-[11px] text-stone-300">
+                    {lang === 'it'
+                      ? 'Questo link di consultazione e l\'intero fascicolo digitale sono ad uso strettamente privato ed esclusivo dell\'Operatore e della cliente Sara Ouachtouk. Non è presente alcuna diffusione verso terzi.'
+                      : 'Ce lien de consultation et l\'ensemble du dossier numérique sont à l\'usage strictement privé et exclusif de l\'Opérateur et de la cliente Sara Ouachtouk. Aucune diffusion à des tiers.'}
+                  </p>
+                </div>
+
                 <div className="border-l-2 border-[#C5A059] pl-3 py-1">
                   <h4 className="font-serif-heading font-bold text-xs text-[#C5A059] uppercase mb-1">
-                    {lang === 'it' ? 'Scopo Operativo' : 'Operational Scope'}
+                    {lang === 'it' ? 'Scopo Operativo' : 'Objectif Opérationnel'}
                   </h4>
                   <p>
                     {lang === 'it'
                       ? 'Svincolo dalle interferenze ancestrali e dai debiti morali imposti dal clan familiare di Mahdi. Il protocollo ripristina la sua naturale capacità di scelta per l\'unione con Sara senza ricatti o sensi di colpa.'
-                      : 'Unbinding from ancestral interference and moral debts imposed by Mahdi\'s family clan. The protocol restores his natural choice without guilt.'}
+                      : 'Dégagement des interférences ancestrales et des dettes morales imposées par le clan familial de Mahdi. Le protocole restaure sa capacité naturelle de choix pour l\'union avec Sara.'}
                   </p>
                 </div>
 
@@ -332,7 +374,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                   className="w-full py-2.5 bg-[#C5A059] text-white rounded-lg font-serif-heading font-semibold text-xs tracking-wider uppercase flex items-center justify-center space-x-2 shadow hover:bg-[#b08c47] transition"
                 >
                   <FileText className="w-4 h-4" />
-                  <span>{lang === 'it' ? 'Visualizza Fascicolo Integrale' : 'View Full Dossier'}</span>
+                  <span>{lang === 'it' ? 'Visualizza Fascicolo Integrale' : 'Afficher le Dossier Intégral'}</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>

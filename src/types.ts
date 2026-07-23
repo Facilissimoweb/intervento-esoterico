@@ -54,19 +54,19 @@ export interface JournalEntry {
 }
 
 export interface PaymentBreakdown {
-  totalInvestment: number;
-  depositFeePaid: number; // 70 eur
-  remainingTotal: number; // 430 eur
+  totalInvestment: number; // 600 eur
+  depositFeePaid: number; // 70 eur (già versate per indagine)
+  remainingTotal: number; // 530 eur
   advancePayment: {
     percentage: number;
-    amount: number; // 280 eur
+    amount: number; // 350 eur
     dueDate: string;
     description: string;
     status: 'pending' | 'paid' | 'overdue';
   };
   finalBalance: {
     percentage: number;
-    amount: number; // 150 eur
+    amount: number; // 180 eur
     dueDate: string;
     description: string;
     status: 'pending' | 'paid';

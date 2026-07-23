@@ -5,7 +5,7 @@ import { ShieldAlert, HelpCircle, CheckSquare, AlertOctagon, Heart, Lock, Save, 
 import { motion } from 'motion/react';
 
 interface RiskTabProps {
-  lang: 'it' | 'en';
+  lang: 'it' | 'fr';
 }
 
 export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
@@ -29,22 +29,22 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
     : RISK_MATRIX.filter(r => r.impactLevel.toLowerCase() === filterSeverity.toLowerCase());
 
   return (
-    <div className="space-y-6 pb-24">
+    <div className="space-y-6">
       {/* Header */}
       <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/30 relative overflow-hidden">
         <div className="flex items-center space-x-2 text-[#C5A059] mb-1.5">
           <ShieldAlert className="w-5 h-5 text-[#A93226]" />
           <span className="font-serif-heading font-bold text-xs uppercase tracking-widest text-[#A93226]">
-            {lang === 'it' ? 'Etica, Consapevolezza & Rischi' : 'Ethics & Risk Governance'}
+            {lang === 'it' ? 'Etica, Consapevolezza & Rischi' : 'Éthique, Conscience & Risques'}
           </span>
         </div>
         <h2 className="font-serif-heading text-xl text-[#2D3436] font-extrabold uppercase tracking-tight">
-          {lang === 'it' ? 'Matrice dei Rischi & Valutazione' : 'Risk Matrix & Ethics'}
+          {lang === 'it' ? 'Matrice dei Rischi & Valutazione' : 'Matrice des Risques & Évaluation'}
         </h2>
         <p className="text-xs text-[#2D3436]/80 mt-2 leading-relaxed">
           {lang === 'it'
             ? 'Ogni intervento profondo comporta reassestamenti sistemici. Il protocollo prevede misure di contenimento stringenti per salvaguardare Sara e Mahdi.'
-            : 'Operational risks are actively monitored and mitigated by protective seals.'}
+            : 'Chaque intervention profonde nécessite un rééquilibrage systémique. Des mesures strictes préservent Sara et Mahdi.'}
         </p>
       </div>
 
@@ -53,12 +53,12 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
         <div className="flex justify-between items-center px-1">
           <h3 className="font-serif-heading text-xs font-bold uppercase text-[#2D3436] tracking-wider flex items-center space-x-1.5">
             <HelpCircle className="w-4 h-4 text-[#C5A059]" />
-            <span>{lang === 'it' ? 'Domande di Valutazione sul Caso (Sara & Mahdi)' : 'Evaluation Notes on Case (Sara & Mahdi)'}</span>
+            <span>{lang === 'it' ? 'Domande di Valutazione sul Caso (Sara & Mahdi)' : 'Notes d\'Évaluation du Cas (Sara & Mahdi)'}</span>
           </h3>
           {savedNotice && (
             <span className="text-[10px] text-emerald-600 font-bold flex items-center space-x-1 animate-pulse">
               <Save className="w-3 h-3" />
-              <span>{lang === 'it' ? 'Salvato!' : 'Saved!'}</span>
+              <span>{lang === 'it' ? 'Salvato!' : 'Enregistré !'}</span>
             </span>
           )}
         </div>

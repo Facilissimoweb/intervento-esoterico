@@ -217,19 +217,19 @@ export const REFLECTION_QUESTIONS: ReflectionQuestion[] = [
 ];
 
 export const PAYMENT_DATA: PaymentBreakdown = {
-  totalInvestment: 500,
+  totalInvestment: 600,
   depositFeePaid: 70,
-  remainingTotal: 430,
+  remainingTotal: 530,
   advancePayment: {
-    percentage: 70,
-    amount: 280,
+    percentage: 66,
+    amount: 350,
     dueDate: "23 Luglio 2026",
     description: "Copre l'acquisto dei materiali cerimoniali rari (olii consacrati, cere vergini, sigilli in metallo), lo scudo di protezione per Sara e l'avvio della Fase I.",
     status: "pending"
   },
   finalBalance: {
-    percentage: 30,
-    amount: 150,
+    percentage: 34,
+    amount: 180,
     dueDate: "Fine Agosto 2026",
     description: "Da versare a compimento del Rituale II (Riaccensione) dopo la conferma di stabilizzazione dei flussi.",
     status: "pending"

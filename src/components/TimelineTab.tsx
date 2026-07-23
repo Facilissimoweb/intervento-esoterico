@@ -5,7 +5,7 @@ import { Calendar, Clock, Moon, CheckCircle2, AlertCircle, ShieldCheck, ArrowRig
 import { motion } from 'motion/react';
 
 interface TimelineTabProps {
-  lang: 'it' | 'en';
+  lang: 'it' | 'fr';
 }
 
 export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
@@ -53,22 +53,22 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
   const activePhase = phases.find(p => p.id === selectedPhaseId) || phases[0];
 
   return (
-    <div className="space-y-6 pb-24">
+    <div className="space-y-6">
       {/* Intro Header */}
       <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/30 relative overflow-hidden">
         <div className="flex items-center space-x-2 text-[#C5A059] mb-1.5">
           <Calendar className="w-5 h-5" />
           <span className="font-serif-heading font-bold text-xs uppercase tracking-widest">
-            {lang === 'it' ? 'Cronoprogramma Operativo Lunare' : 'Lunar Operational Timeline'}
+            {lang === 'it' ? 'Cronoprogramma Operativo Lunare' : 'Planning Opérationnel Lunaire'}
           </span>
         </div>
         <h2 className="font-serif-heading text-xl text-[#2D3436] font-extrabold uppercase tracking-tight">
-          {lang === 'it' ? 'Calendario dell\'Intervento' : 'Intervention Timeline'}
+          {lang === 'it' ? 'Calendario dell\'Intervento' : 'Calendrier de l\'Intervention'}
         </h2>
         <p className="text-xs text-[#2D3436]/80 mt-2 leading-relaxed">
           {lang === 'it'
             ? 'L\'intervento rispetta la meccanica celeste delle fasi lunari tra Luglio e Agosto per garantire la massima efficacia ed evitare reazioni avverse.'
-            : 'Operational phases aligned with lunar cycles between July and August.'}
+            : 'L\'intervention respecte la mécanique céleste des phases lunaires entre Juillet et Août pour garantir une efficacité maximale.'}
         </p>
 
         {/* Live Countdown Box */}
@@ -77,16 +77,16 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
             <Clock className="w-4 h-4 text-[#C5A059] animate-spin" style={{ animationDuration: '6s' }} />
             <div>
               <span className="text-[10px] text-gray-400 block uppercase font-medium">
-                {lang === 'it' ? 'Inizio FASE I (Schermatura):' : 'Phase I Countdown:'}
+                {lang === 'it' ? 'Inizio FASE I (Schermatura):' : 'Début PHASE I (Bouclier) :'}
               </span>
-              <span className="text-xs font-bold text-white">23 LUG 2026</span>
+              <span className="text-xs font-bold text-white">23 JUIL 2026</span>
             </div>
           </div>
 
           <div className="flex space-x-1.5 font-mono text-center">
             <div className="bg-black/40 px-2 py-1 rounded border border-[#C5A059]/20">
               <span className="text-xs font-bold text-[#C5A059]">{timeLeft.days}</span>
-              <span className="text-[8px] text-gray-400 block">{lang === 'it' ? 'g' : 'd'}</span>
+              <span className="text-[8px] text-gray-400 block">{lang === 'it' ? 'g' : 'j'}</span>
             </div>
             <div className="bg-black/40 px-2 py-1 rounded border border-[#C5A059]/20">
               <span className="text-xs font-bold text-[#C5A059]">{timeLeft.hours}</span>
