@@ -5,106 +5,86 @@ declare global {
   }
 }
 
-let isCleanerRunning = false;
-
 export function cleanGoogleTranslateArtifacts() {
   if (typeof document === 'undefined') return;
 
-  // Reset top positioning enforced by Google Translate on body & html
-  if (document.body && document.body.style.top !== '0px') {
+  // Enforce top positioning so Google Translate doesn't push down the header
+  if (document.body) {
     document.body.style.top = '0px';
     document.body.style.marginTop = '0px';
     document.body.style.paddingTop = '0px';
   }
-  if (document.documentElement && document.documentElement.style.top !== '0px') {
+  if (document.documentElement) {
     document.documentElement.style.top = '0px';
     document.documentElement.style.marginTop = '0px';
   }
-
-  // Force hide any injected banner frames or floating popups
-  const elementsToHide = document.querySelectorAll(
-    '.goog-te-banner-frame, iframe.skiptranslate, .VIpgJd-Z3111-O2233-Ja2420, #goog-gt-tt, .goog-te-balloon-frame, .goog-tooltip'
-  );
-
-  elementsToHide.forEach((el) => {
-    const htmlEl = el as HTMLElement;
-    if (htmlEl.style.display !== 'none') {
-      htmlEl.style.setProperty('display', 'none', 'important');
-      htmlEl.style.setProperty('visibility', 'hidden', 'important');
-      htmlEl.style.setProperty('height', '0px', 'important');
-    }
-  });
-}
-
-function startGoogleTranslateCleaner() {
-  if (isCleanerRunning || typeof document === 'undefined') return;
-  isCleanerRunning = true;
-
-  // Run cleanup on DOM mutations
-  const observer = new MutationObserver(() => {
-    cleanGoogleTranslateArtifacts();
-  });
-
-  if (document.body) {
-    observer.observe(document.body, {
-      attributes: true,
-      attributeFilter: ['style', 'class'],
-      childList: true,
-      subtree: false,
-    });
-  }
-
-  if (document.documentElement) {
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['style', 'class'],
-    });
-  }
-
-  // Periodic interval safeguard
-  setInterval(() => {
-    cleanGoogleTranslateArtifacts();
-  }, 400);
 }
 
 export function initGoogleTranslate() {
-  startGoogleTranslateCleaner();
+  if (typeof window === 'undefined') return;
 
-  if (document.getElementById('google-translate-script')) return;
-
+  // Define global callback for Google Translate initialization
   window.googleTranslateElementInit = () => {
     if (window.google && window.google.translate) {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: 'it',
-          autoDisplay: false,
           includedLanguages: 'it,fr,en,es,de,ar',
+          autoDisplay: false,
         },
         'google_translate_element'
       );
     }
   };
 
-  const script = document.createElement('script');
-  script.id = 'google-translate-script';
-  script.type = 'text/javascript';
-  script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-  script.async = true;
-  document.body.appendChild(script);
+  // Inject script if not already added
+  if (!document.getElementById('google-translate-script')) {
+    const script = document.createElement('script');
+    script.id = 'google-translate-script';
+    script.type = 'text/javascript';
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.body.appendChild(script);
+  }
+
+  cleanGoogleTranslateArtifacts();
 }
 
 export function setGoogleTranslateLang(langCode: string) {
-  cleanGoogleTranslateArtifacts();
+  if (typeof document === 'undefined') return;
 
-  // Clear any existing Google Translate cookies to prevent Google Translate
-  // from overriding React's native Italian/French rendering and causing DOM flickering or text corruption.
-  document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  const target = langCode.toLowerCase();
+  const cookieVal = `/it/${target}`;
+
+  // Set Google Translate cookie
+  document.cookie = `googtrans=${cookieVal}; path=/;`;
   if (typeof window !== 'undefined') {
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
-    document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname};`;
+    document.cookie = `googtrans=${cookieVal}; path=/; domain=${window.location.hostname};`;
+    document.cookie = `googtrans=${cookieVal}; path=/; domain=.${window.location.hostname};`;
   }
 
-  // Remove any injected font tags or translate attributes created by browser extensions
+  // Trigger translation via Google Translate combo box if present
+  const combo = document.querySelector('.goog-te-combo') as HTMLSelectElement | null;
+  if (combo) {
+    combo.value = target;
+    combo.dispatchEvent(new Event('change'));
+  } else {
+    // If combo is not loaded yet, re-init or reload
+    if (window.google && window.google.translate) {
+      try {
+        new window.google.translate.TranslateElement(
+          { pageLanguage: 'it', autoDisplay: false },
+          'google_translate_element'
+        );
+      } catch (e) {
+        // ignore
+      }
+    }
+  }
+
   cleanGoogleTranslateArtifacts();
 }
+
+
+
 

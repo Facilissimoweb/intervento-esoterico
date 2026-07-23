@@ -73,7 +73,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({ isOpen, onClose, lan
             <div className="flex items-center space-x-2 text-[#C5A059] border-b border-[#C5A059]/25 pb-1.5 print:border-black">
               <GraduationCap className="w-4 h-4 text-[#C5A059] print:text-black" />
               <h3 className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#DFC08D] print:text-black">
-                Formazione Scolastica & Accademica
+                {lang === 'it' ? 'Formazione Scolastica & Accademica' : 'Formation Scolaire & Académique'}
               </h3>
             </div>
 
@@ -95,7 +95,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({ isOpen, onClose, lan
             <div className="flex items-center space-x-2 text-[#C5A059] border-b border-[#C5A059]/25 pb-1.5 print:border-black">
               <Award className="w-4 h-4 text-[#C5A059] print:text-black" />
               <h3 className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#DFC08D] print:text-black">
-                Percorsi Formativi, Attestati & Certificazioni
+                {lang === 'it' ? 'Percorsi Formativi, Attestati & Certificazioni' : 'Parcours de Formation & Certifications'}
               </h3>
             </div>
 
@@ -117,7 +117,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({ isOpen, onClose, lan
 
                   {q.mentor && (
                     <p className="text-[10px] text-gray-400 print:text-gray-700 italic">
-                      Direzione / Docenza: <strong className="text-gray-200 print:text-black font-semibold">{q.mentor}</strong>
+                      {lang === 'it' ? 'Direzione / Docenza:' : 'Direction / Enseignement :'} <strong className="text-gray-200 print:text-black font-semibold">{q.mentor}</strong>
                     </p>
                   )}
 
@@ -136,10 +136,12 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({ isOpen, onClose, lan
           <div className="p-3.5 bg-[#1A202C] rounded-xl border border-[#C5A059]/30 space-y-1.5 text-[11px] text-gray-300 print:bg-white print:border-black print:text-black">
             <strong className="text-xs font-serif-heading font-bold text-[#DFC08D] block print:text-black flex items-center space-x-1.5">
               <Compass className="w-3.5 h-3.5 text-[#C5A059] print:text-black" />
-              <span>Metodologia & Garanzia di Riservatezza</span>
+              <span>{lang === 'it' ? 'Metodologia & Garanzia di Riservatezza' : 'Méthodologie & Garantie de Confidentialité'}</span>
             </strong>
             <p className="leading-relaxed text-[10px] text-gray-300 print:text-black">
-              Ogni indagine e operazione svolta dall'Operatore Teresa sotto la sigla TAROT ITALIA segue rigorosamente i principi di etica olistica, massima riservatezza professionale e tutela della persona, impiegando unicamente strumenti consacrati e protocolli radiestesici di precisione.
+              {lang === 'it'
+                ? "Ogni indagine e operazione svolta dall'Operatore Teresa sotto la sigla TAROT ITALIA segue rigorosamente i principi di etica olistica, massima riservatezza professionale e tutela della persona, impiegando unicamente strumenti consacrati e protocolli radiestesici di precisione."
+                : "Chaque enquête et opération menée par l'Opérateur Teresa sous le nom TAROT ITALIA suit rigoureusement les principes d'éthique holistique, de confidentialité professionnelle et de protection de la personne."}
             </p>
           </div>
         </div>
@@ -150,7 +152,7 @@ export const AboutMeModal: React.FC<AboutMeModalProps> = ({ isOpen, onClose, lan
             onClick={onClose}
             className="w-full py-2 bg-[#C5A059] hover:bg-[#b08d49] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition shadow-md"
           >
-            Chiudi Scheda Operatore
+            {lang === 'it' ? 'Chiudi Scheda Operatore' : 'Fermer la Fiche Opérateur'}
           </button>
         </div>
       </motion.div>

@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 interface FullDossierModalProps {
   isOpen: boolean;
   onClose: () => void;
-  lang: 'it' | 'en';
+  lang: 'it' | 'fr';
 }
 
 export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onClose, lang }) => {
@@ -29,7 +29,7 @@ export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onCl
           <div className="flex items-center space-x-2">
             <Shield className="w-5 h-5 text-[#C5A059]" />
             <span className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#DFC08D]">
-              Fascicolo Integrale - {PROTOCOL_INFO.code}
+              {lang === 'it' ? 'Fascicolo Integrale' : 'Dossier Intégral'} - {PROTOCOL_INFO.code}
             </span>
           </div>
 
@@ -39,7 +39,7 @@ export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onCl
               className="flex items-center space-x-1 px-3 py-1 bg-[#C5A059] text-white rounded-lg text-xs font-bold uppercase hover:bg-[#b08c47] transition"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Stampa</span>
+              <span>{lang === 'it' ? 'Stampa' : 'Imprimer'}</span>
             </button>
             <button
               onClick={onClose}
@@ -56,36 +56,36 @@ export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onCl
           {/* Header */}
           <div className="text-center border-b border-[#C5A059]/30 pb-6">
             <div className="inline-block text-[10px] uppercase font-bold tracking-widest text-[#C5A059] bg-[#C5A059]/10 px-3 py-1 rounded-full mb-3 border border-[#C5A059]/20">
-              DOCUMENTO UFFICIALE RISERVATO
+              {lang === 'it' ? 'DOCUMENTO UFFICIALE RISERVATO' : 'DOCUMENT OFFICIEL CONFIDENTIEL'}
             </div>
             <h1 className="font-serif-heading text-2xl sm:text-4xl text-[#DFC08D] font-bold uppercase tracking-tight">
               Svincolo <span className="text-[#C5A059]">Ancestrale</span>
             </h1>
             <p className="font-cursive text-base text-gray-400 mt-1">
-              Relazione Operativa per Sara Ouachtouk • Protocollo {PROTOCOL_INFO.code}
+              {lang === 'it' ? 'Relazione Operativa per Sara Ouachtouk' : 'Rapport Opérationnel pour Sara Ouachtouk'} • Protocollo {PROTOCOL_INFO.code}
             </p>
           </div>
 
           {/* Section 1: Executive Summary */}
           <div className="space-y-3">
             <h2 className="font-serif-heading text-sm font-bold uppercase text-[#DFC08D] border-b border-[#C5A059]/20 pb-1">
-              1. Quadro Sintetico e Stato
+              1. {lang === 'it' ? 'Quadro Sintetico e Stato' : 'Synthèse et État'}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3 bg-[#1A202C] rounded-xl border border-[#C5A059]/20 text-[11px]">
               <div>
-                <span className="text-gray-400 block">Committente:</span>
+                <span className="text-gray-400 block">{lang === 'it' ? 'Committente:' : 'Demandeur :'}</span>
                 <strong className="text-white">{PROTOCOL_INFO.clientName}</strong>
               </div>
               <div>
-                <span className="text-gray-400 block">Soggetto:</span>
+                <span className="text-gray-400 block">{lang === 'it' ? 'Soggetto:' : 'Sujet :'}</span>
                 <strong className="text-white">{PROTOCOL_INFO.targetName}</strong>
               </div>
               <div>
-                <span className="text-gray-400 block">Stato:</span>
+                <span className="text-gray-400 block">{lang === 'it' ? 'Stato:' : 'Statut :'}</span>
                 <strong className="text-amber-400">{PROTOCOL_INFO.status}</strong>
               </div>
               <div>
-                <span className="text-gray-400 block">Probabilità Riuscita:</span>
+                <span className="text-gray-400 block">{lang === 'it' ? 'Probabilità Riuscita:' : 'Probabilité de Succès :'}</span>
                 <strong className="text-emerald-400">{PROTOCOL_INFO.probability}</strong>
               </div>
             </div>
