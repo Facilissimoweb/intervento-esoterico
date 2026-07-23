@@ -54,44 +54,73 @@
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
 }
 
-/* Google Translate "Under the Hood" UI overrides */
-.goog-te-banner-frame, 
-.goog-te-banner-frame.skiptranslate,
-iframe.goog-te-banner-frame {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-}
-
-body {
+/* Google Translate "Under the Hood" Complete UI Suppression */
+html,
+body,
+#root {
   top: 0px !important;
+  margin-top: 0px !important;
+  padding-top: 0px !important;
   position: static !important;
 }
 
-.goog-te-gadget {
-  display: none !important;
-  font-size: 0 !important;
-}
-
-.goog-text-highlight {
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
-
-#goog-gt-tt, 
+/* Hide all Google Translate banner frames, iframes, tooltips, popups, and widgets */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+iframe.skiptranslate,
+iframe[id*=":"],
+iframe[src*="translate"],
+.VIpgJd-Z3111-O2233-Ja2420,
+.VIpgJd-yA0TOf-LNgA0b,
+.VIpgJd-yA0TOf-LNgA0b-bd716e,
+.VIpgJd-yA0TOf-l4e4b-MJuOvd,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-menu-frame,
+.goog-te-spinner-pos,
+#goog-gt-tt,
 .goog-te-balloon-frame,
 .goog-tooltip,
 .goog-tooltip:hover {
   display: none !important;
   visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  width: 0 !important;
+  pointer-events: none !important;
+  z-index: -99999 !important;
 }
 
-#google_translate_element {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  opacity: 0;
-  pointer-events: none;
+/* Prevent highlight styling added by Google Translate */
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Hide the hidden translate target element */
+#google_translate_element,
+.goog-te-combo {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+/* Prevent skiptranslate wrapper elements from breaking layout or adding top gaps */
+body > .skiptranslate,
+html > .skiptranslate {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0 !important;
 }
 
 

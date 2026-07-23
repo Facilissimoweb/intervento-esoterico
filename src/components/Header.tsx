@@ -82,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
             <div>
               <div className="flex items-center space-x-1.5">
                 <span className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#DFC08D]">
-                  {PROTOCOL_INFO.code}
+                  TAROT ITALIA
                 </span>
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
               </div>
@@ -94,6 +94,16 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
 
           {/* Right Actions */}
           <div className="flex items-center space-x-1.5">
+            {/* Language Switch Toggle */}
+            <button
+              onClick={() => setLang(lang === 'it' ? 'fr' : 'it')}
+              className="px-2 py-1 rounded-full bg-[#1A202C] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition border border-[#C5A059]/30 text-[10px] font-bold flex items-center space-x-1"
+              title={lang === 'it' ? 'Traduci in Francese' : 'Torna in Italiano'}
+            >
+              <Globe className="w-3.5 h-3.5 text-[#C5A059]" />
+              <span className="uppercase">{lang === 'it' ? 'IT' : 'FR'}</span>
+            </button>
+
             {/* Print Button for current page */}
             <button
               onClick={() => window.print()}
