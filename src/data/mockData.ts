@@ -254,17 +254,17 @@ export const PAYMENT_DATA: PaymentBreakdown = {
   depositFeePaid: 70,
   remainingTotal: 530,
   advancePayment: {
-    percentage: 66,
+    percentage: 70,
     amount: 350,
-    dueDate: "23 Luglio 2026",
-    description: "Copre l'acquisto dei materiali cerimoniali rari (olii consacrati, cere vergini, sigilli in metallo), lo scudo di protezione per Sara e l'avvio della Fase I.",
+    dueDate: "Fine Luglio 2026",
+    description: "70 per cento entro fine Luglio. Copre l'acquisto dei materiali cerimoniali rari (olii consacrati, cere vergini, sigilli in metallo), lo scudo di protezione per Sara e l'avvio della Fase 1.",
     status: "pending"
   },
   finalBalance: {
-    percentage: 34,
+    percentage: 30,
     amount: 180,
     dueDate: "Fine Agosto 2026",
-    description: "Da versare a compimento del Rituale II (Riaccensione) dopo la conferma di stabilizzazione dei flussi.",
+    description: "30 per cento da versare a compimento del Rituale II (Riaccensione) dopo la conferma di stabilizzazione dei flussi.",
     status: "pending"
   }
 };

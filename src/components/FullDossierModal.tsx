@@ -200,7 +200,7 @@ export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onCl
                 <span className="text-emerald-400 font-bold">- € {PAYMENT_DATA.depositFeePaid},00</span>
               </div>
               <div className="flex justify-between text-gray-300">
-                <span>• Acconto Avvio (70% entro 23 Luglio):</span>
+                <span>• Acconto Avvio (70 per cento entro fine Luglio):</span>
                 <span>€ {PAYMENT_DATA.advancePayment.amount},00</span>
               </div>
               <div className="flex justify-between text-gray-300">

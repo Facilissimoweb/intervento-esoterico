@@ -96,32 +96,15 @@ export function initGoogleTranslate() {
 export function setGoogleTranslateLang(langCode: string) {
   cleanGoogleTranslateArtifacts();
 
-  if (langCode === 'it') {
-    // Clear Google Translate cookies completely to restore native language
-    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  // Clear any existing Google Translate cookies to prevent Google Translate
+  // from overriding React's native Italian/French rendering and causing DOM flickering or text corruption.
+  document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  if (typeof window !== 'undefined') {
     document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
     document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${window.location.hostname};`;
-  } else {
-    // Set google translate cookies for target language
-    const targetVal = `/it/${langCode}`;
-    document.cookie = `googtrans=${targetVal}; path=/;`;
-    document.cookie = `googtrans=${targetVal}; path=/; domain=${window.location.hostname};`;
   }
 
-  // Trigger Google Translate combo select element if mounted
-  const combo = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-  if (combo) {
-    combo.value = langCode === 'it' ? 'it' : langCode;
-    combo.dispatchEvent(new Event('change'));
-  } else {
-    // Reload to apply cookie if combo isn't present
-    setTimeout(() => {
-      window.location.reload();
-    }, 150);
-  }
-
-  setTimeout(() => {
-    cleanGoogleTranslateArtifacts();
-  }, 100);
+  // Remove any injected font tags or translate attributes created by browser extensions
+  cleanGoogleTranslateArtifacts();
 }
 

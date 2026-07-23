@@ -162,13 +162,13 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
               </div>
               <div>
                 <span className="text-[9px] font-bold text-[#C5A059] uppercase tracking-widest block">
-                  {lang === 'it' ? 'ACCONTO AVVIO FASE I' : 'ACOMPTE DE DÉMARRAGE PHASE I'}
+                  {lang === 'it' ? 'ACCONTO AVVIO: 70 PER CENTO ENTRO FINE LUGLIO' : 'ACOMPTE DE DÉMARRAGE : 70% FIN JUILLET'}
                 </span>
                 <h4 className="font-serif-heading font-bold text-xs text-[#E2E8F0]">
                   {lang === 'it' ? 'Acconto Inizio Operazioni' : 'Acompte de Début des Opérations'}
                 </h4>
                 <p className="text-[10px] text-gray-400 mt-0.5">
-                  {lang === 'it' ? 'Scadenza: 23 Luglio 2026' : 'Échéance : 23 Juillet 2026'}
+                  {lang === 'it' ? 'Scadenza: Fine Luglio 2026' : 'Échéance : Fin Juillet 2026'}
                 </p>
               </div>
             </div>
