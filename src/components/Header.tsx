@@ -88,8 +88,10 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                 </span>
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
               </div>
-              <p className="text-[10px] text-gray-400 font-medium truncate max-w-[160px]">
-                {lang === 'it' ? 'Richiedente:' : 'Demandeur :'} <strong className="text-gray-200">{PROTOCOL_INFO.clientName}</strong>
+              <p className="text-[10px] text-gray-400 font-medium leading-tight mt-0.5">
+                {lang === 'it' ? 'Richiedente:' : 'Demandeur :'}
+                <br />
+                <strong className="text-gray-200">Sara</strong>
               </p>
             </div>
           </div>
