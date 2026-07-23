@@ -94,26 +94,6 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
 
           {/* Right Actions */}
           <div className="flex items-center space-x-1.5">
-            {/* Language Switch Toggle */}
-            <button
-              onClick={() => setLang(lang === 'it' ? 'fr' : 'it')}
-              className="px-2 py-1 rounded-full bg-[#1A202C] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition border border-[#C5A059]/30 text-[10px] font-bold flex items-center space-x-1"
-              title={lang === 'it' ? 'Traduci in Francese' : 'Torna in Italiano'}
-            >
-              <Globe className="w-3.5 h-3.5 text-[#C5A059]" />
-              <span className="uppercase">{lang === 'it' ? 'IT' : 'FR'}</span>
-            </button>
-
-            {/* Print Button for current page */}
-            <button
-              onClick={() => window.print()}
-              className="p-1.5 rounded-full bg-[#1A202C] text-[#E2E8F0] hover:bg-[#C5A059] hover:text-white transition border border-[#C5A059]/30"
-              title={lang === 'it' ? 'Stampa Pagina Attuale' : 'Imprimer la Page Actuelle'}
-              aria-label="Stampa"
-            >
-              <Printer className="w-4 h-4" />
-            </button>
-
             {/* Info Trigger */}
             <button
               onClick={() => setShowInfoModal(true)}
@@ -275,7 +255,18 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
               </div>
 
               {/* Drawer Footer */}
-              <div className="mt-6 pt-4 border-t border-white/10 space-y-3">
+              <div className="mt-6 pt-4 border-t border-white/10 space-y-2">
+                <button
+                  onClick={() => {
+                    setShowHamburgerMenu(false);
+                    setTimeout(() => window.print(), 150);
+                  }}
+                  className="w-full py-2 bg-white/5 border border-white/10 hover:bg-[#C5A059] text-gray-200 hover:text-white rounded-lg text-xs font-semibold uppercase flex items-center justify-center space-x-2 transition"
+                >
+                  <Printer className="w-4 h-4 text-[#C5A059]" />
+                  <span>{lang === 'it' ? 'Stampa Pagina' : 'Imprimer la Page'}</span>
+                </button>
+
                 <button
                   onClick={() => {
                     setShowHamburgerMenu(false);
@@ -287,7 +278,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                   <span>{lang === 'it' ? 'Info e Contesto' : 'Info & Contexte'}</span>
                 </button>
 
-                <p className="text-[9px] text-gray-500 text-center italic font-cursive">
+                <p className="text-[9px] text-gray-500 text-center italic font-cursive pt-1">
                   "{PROTOCOL_INFO.motto}"
                 </p>
               </div>
