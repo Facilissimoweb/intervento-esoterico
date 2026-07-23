@@ -193,7 +193,17 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
       "Schermatura del campo aurico contro ingerenze estroverse"
     ],
     protocolRule: "Mantenere uno stato d'animo sereno e fiducioso per non interferire con la schermatura iniziale.",
-    intensity: "Medium"
+    intensity: "Medium",
+    technicalProtocol: {
+      ptahAction: {
+        stage: "Fase 0 - Consacrazione & Mappatura Frequenziale",
+        description: "Il Pendolo Ptah viene tarato sulle frequenze auriche di Mahdi. Esecuzione della prima scansione diagnostica per mappare lo spessore della corazza saturnina e individuare la collocazione esatta dei cordoni del clan."
+      },
+      piramideAction: {
+        stage: "Inizializzazione Testimoni & Schermatura Preventiva",
+        description: "Inserimento dei testimoni (nomi e date) di Mahdi e Sara nella Piramide Nubiana a 72°. Generazione del campo di protezione per isolare la coppia prima dell'inizio delle operazioni di taglio."
+      }
+    }
   },
   {
     id: 2,
@@ -213,7 +223,17 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
       "Neutralizzazione dei tentativi di condizionamento emotivo"
     ],
     protocolRule: "Durante il 'taglio', Mahdi potrebbe mostrare freddezza o distacco reattivo. Non allarmarsi: è il naturale smaltimento della corazza.",
-    intensity: "High"
+    intensity: "High",
+    technicalProtocol: {
+      ptahAction: {
+        stage: "Fase A (Estrazione) & Fase B (Dissipazione)",
+        description: "Utilizzato come un bisturi per individuare e sradicare i cordoni parassitari che collegano Mahdi al clan familiare (Sâoud, Zakia e sorella). Segue l'emissione di frequenze che sgretolano la corazza saturnina che lo rende freddo e impassibile."
+      },
+      piramideAction: {
+        stage: "Schermatura Attiva Antireflusso (72°)",
+        description: "La Piramide assorbe e scherma ogni contraccolpo psichico o tentativi di condizionamento emotivo ed economico scatenati dalla famiglia durante il taglio dei legami tossici."
+      }
+    }
   },
   {
     id: 3,
@@ -233,7 +253,17 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
       "Schermatura passiva mediante la Piramide Nubiana"
     ],
     protocolRule: "Pausa di assestamento: evitare di sollecitare Mahdi con discussioni o richieste pressanti.",
-    intensity: "Resting"
+    intensity: "Resting",
+    technicalProtocol: {
+      ptahAction: {
+        stage: "Monitoraggio Passivo & Pulizia Miasmatica",
+        description: "Mantenimento del pendolo in modalità neutra di riassestamento per purificare i residui energetici ed evitare shock al sistema nervoso di Mahdi nel periodo di vuoto."
+      },
+      piramideAction: {
+        stage: "Cassa di Risonanza Protettiva nel Vuoto",
+        description: "Preservazione della bolla di silenzio operativo durante la Luna Nuova. Impedisce che nostalgie reattive o sensi di colpa rioccupino i canali appena liberati."
+      }
+    }
   },
   {
     id: 4,
@@ -253,7 +283,17 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
       "Stabilizzazione del desiderio e del legame di coppia con Sara"
     ],
     protocolRule: "Accogliere il ritorno della passione e dell'iniziativa di Mahdi con apertura, dolcezza e naturalezza.",
-    intensity: "High"
+    intensity: "High",
+    technicalProtocol: {
+      ptahAction: {
+        stage: "Fase C - Rinnescamento Sacrale",
+        description: "Iniezione diretta di energia vitale nei centri sacrali per riaccendere la polarità maschile, il desiderio viscerale e la spinta all'iniziativa di Mahdi verso Sara."
+      },
+      piramideAction: {
+        stage: "Acceleratore di Manifestazione & Fissaggio",
+        description: "Sotto la spinta della Luna Crescente, la pendenza specifica (72°) della Piramide Nubiana amplifica e fissa la nuova matrice energetica della coppia, mantenendo l'energia del Rinnescamento costante per tutto il mese."
+      }
+    }
   }
 ];
 

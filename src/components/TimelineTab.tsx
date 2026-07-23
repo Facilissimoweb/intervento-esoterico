@@ -241,18 +241,23 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
         </div>
       </motion.div>
 
-      {/* PARTE 3: PROTOCOLLO TECNICO OPERATIVO */}
+      {/* PARTE 3: PROTOCOLLO TECNICO OPERATIVO (DINAMICO PER FASE) */}
       <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/40 space-y-4 shadow-md bg-[#131822]">
-        <div className="flex items-center space-x-2 text-[#C5A059] border-b border-[#C5A059]/30 pb-2.5">
-          <Zap className="w-5 h-5 text-[#C5A059]" />
-          <div>
-            <h3 className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#DFC08D]">
-              {TECHNICAL_PROTOCOL.title}
-            </h3>
-            <p className="text-[10px] text-gray-400 font-sans">
-              {TECHNICAL_PROTOCOL.subtitle}
-            </p>
+        <div className="flex items-center justify-between border-b border-[#C5A059]/30 pb-2.5">
+          <div className="flex items-center space-x-2 text-[#C5A059]">
+            <Zap className="w-5 h-5 text-[#C5A059]" />
+            <div>
+              <h3 className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#DFC08D]">
+                {TECHNICAL_PROTOCOL.title}
+              </h3>
+              <p className="text-[10px] text-gray-400 font-sans">
+                {lang === 'it' ? 'Modalità di intervento strumentale per' : 'Instrumental mode for'} <strong className="text-[#DFC08D]">{activePhase.code} ({activePhase.title})</strong>
+              </p>
+            </div>
           </div>
+          <span className="text-[9px] uppercase font-bold text-[#C5A059] bg-[#C5A059]/15 px-2.5 py-1 rounded-full border border-[#C5A059]/30">
+            {activePhase.code}
+          </span>
         </div>
 
         <div className="space-y-4">
@@ -261,25 +266,36 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
             <div className="flex justify-between items-center border-b border-[#C5A059]/20 pb-1.5">
               <h4 className="font-serif-heading font-bold text-xs text-[#DFC08D] flex items-center space-x-1.5">
                 <Compass className="w-4 h-4 text-[#C5A059]" />
-                <span>{TECHNICAL_PROTOCOL.tools[0].name}</span>
+                <span>1. IL PENDOLO PTAH</span>
               </h4>
               <span className="text-[9px] uppercase font-bold text-[#C5A059] bg-[#C5A059]/10 px-2 py-0.5 rounded border border-[#C5A059]/30">
                 {TECHNICAL_PROTOCOL.tools[0].type}
               </span>
             </div>
 
-            <div className="space-y-2 pt-1">
-              {TECHNICAL_PROTOCOL.tools[0].phases?.map((ptahPhase, idx) => (
-                <div key={idx} className="bg-[#131822] p-2.5 rounded-lg border border-gray-800 space-y-0.5">
-                  <strong className="text-[11px] text-[#DFC08D] font-serif-heading block">
-                    {ptahPhase.code}
-                  </strong>
-                  <p className="text-[11px] text-gray-300 leading-relaxed">
-                    {ptahPhase.details}
-                  </p>
-                </div>
-              ))}
-            </div>
+            {activePhase.technicalProtocol?.ptahAction ? (
+              <div className="bg-[#131822] p-3 rounded-lg border border-[#C5A059]/30 space-y-1">
+                <strong className="text-xs text-[#DFC08D] font-serif-heading block">
+                  {activePhase.technicalProtocol.ptahAction.stage}
+                </strong>
+                <p className="text-[11px] text-gray-200 leading-relaxed">
+                  {activePhase.technicalProtocol.ptahAction.description}
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-2 pt-1">
+                {TECHNICAL_PROTOCOL.tools[0].phases?.map((ptahPhase, idx) => (
+                  <div key={idx} className="bg-[#131822] p-2.5 rounded-lg border border-gray-800 space-y-0.5">
+                    <strong className="text-[11px] text-[#DFC08D] font-serif-heading block">
+                      {ptahPhase.code}
+                    </strong>
+                    <p className="text-[11px] text-gray-300 leading-relaxed">
+                      {ptahPhase.details}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Tool 2: Piramide Nubiana */}
@@ -287,16 +303,27 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
             <div className="flex justify-between items-center border-b border-[#C5A059]/20 pb-1.5">
               <h4 className="font-serif-heading font-bold text-xs text-[#DFC08D] flex items-center space-x-1.5">
                 <Shield className="w-4 h-4 text-[#C5A059]" />
-                <span>{TECHNICAL_PROTOCOL.tools[1].name}</span>
+                <span>2. LA PIRAMIDE NUBIANA</span>
               </h4>
               <span className="text-[9px] uppercase font-bold text-[#C5A059] bg-[#C5A059]/10 px-2 py-0.5 rounded border border-[#C5A059]/30">
                 {TECHNICAL_PROTOCOL.tools[1].type}
               </span>
             </div>
 
-            <p className="text-[11px] text-gray-300 leading-relaxed pt-1">
-              {TECHNICAL_PROTOCOL.tools[1].description}
-            </p>
+            {activePhase.technicalProtocol?.piramideAction ? (
+              <div className="bg-[#131822] p-3 rounded-lg border border-[#C5A059]/30 space-y-1">
+                <strong className="text-xs text-[#DFC08D] font-serif-heading block">
+                  {activePhase.technicalProtocol.piramideAction.stage}
+                </strong>
+                <p className="text-[11px] text-gray-200 leading-relaxed">
+                  {activePhase.technicalProtocol.piramideAction.description}
+                </p>
+              </div>
+            ) : (
+              <p className="text-[11px] text-gray-300 leading-relaxed pt-1">
+                {TECHNICAL_PROTOCOL.tools[1].description}
+              </p>
+            )}
           </div>
         </div>
       </div>

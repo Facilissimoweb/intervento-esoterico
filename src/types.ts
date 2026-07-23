@@ -11,6 +11,17 @@ export interface ChakraData {
   impactNote: string;
 }
 
+export interface PhaseTechnicalProtocol {
+  ptahAction: {
+    stage: string;
+    description: string;
+  };
+  piramideAction: {
+    stage: string;
+    description: string;
+  };
+}
+
 export interface TimelinePhase {
   id: number;
   code: string;
@@ -25,6 +36,7 @@ export interface TimelinePhase {
   keyActions: string[];
   protocolRule: string;
   intensity: 'High' | 'Medium' | 'Resting';
+  technicalProtocol?: PhaseTechnicalProtocol;
 }
 
 export interface RiskItem {
