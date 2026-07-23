@@ -1,6 +1,6 @@
 import React from 'react';
-import { PROTOCOL_INFO, CHAKRA_INITIAL_DATA, TIMELINE_PHASES, TECHNICAL_PROTOCOL, RISK_MATRIX, REFLECTION_QUESTIONS, PAYMENT_DATA } from '../data/mockData';
-import { FileText, X, Printer, Shield, CheckCircle, Flame, Lock } from 'lucide-react';
+import { PROTOCOL_INFO, CHAKRA_INITIAL_DATA, TIMELINE_PHASES, TECHNICAL_PROTOCOL, RISK_MATRIX, REFLECTION_QUESTIONS, PAYMENT_DATA, TERESA_OPERATOR_PROFILE } from '../data/mockData';
+import { FileText, X, Printer, Shield, CheckCircle, Flame, Lock, GraduationCap, Award } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface FullDossierModalProps {
@@ -87,6 +87,32 @@ export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onCl
               <div>
                 <span className="text-gray-400 block">Probabilità Riuscita:</span>
                 <strong className="text-emerald-400">{PROTOCOL_INFO.probability}</strong>
+              </div>
+            </div>
+
+            {/* Operatore Profile Box */}
+            <div className="p-3.5 bg-[#1A202C] rounded-xl border border-[#C5A059]/30 space-y-2 text-[11px]">
+              <div className="flex justify-between items-center border-b border-[#C5A059]/20 pb-1.5">
+                <span className="font-serif-heading font-bold text-[#DFC08D] flex items-center space-x-1.5">
+                  <Award className="w-4 h-4 text-[#C5A059]" />
+                  <span>Operatore Olistico e Direzione Tecnica: {TERESA_OPERATOR_PROFILE.name} ({TERESA_OPERATOR_PROFILE.brand})</span>
+                </span>
+                <span className="text-[9px] uppercase font-bold text-[#C5A059] bg-[#C5A059]/10 px-2 py-0.5 rounded border border-[#C5A059]/30">
+                  {TERESA_OPERATOR_PROFILE.title}
+                </span>
+              </div>
+              <p className="text-gray-300 text-[10px]">
+                <strong className="text-gray-200">Formazione scolastica:</strong> {TERESA_OPERATOR_PROFILE.academicEducation.degree} ({TERESA_OPERATOR_PROFILE.academicEducation.institution}).
+              </p>
+              <div className="text-[10px] text-gray-300 space-y-1 pt-0.5">
+                <strong className="text-gray-200 block">Qualifiche e Certificazioni Certificate:</strong>
+                <ul className="list-disc pl-4 space-y-0.5 text-gray-400">
+                  {TERESA_OPERATOR_PROFILE.qualifications.map(q => (
+                    <li key={q.id}>
+                      <strong className="text-gray-200">{q.title}</strong> — {q.subtitle} {q.mentor ? `(Dir. ${q.mentor})` : ''} {q.accreditation ? `[${q.accreditation}]` : ''}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { TabType } from '../types';
 import { PROTOCOL_INFO } from '../data/mockData';
-import { Shield, Sparkles, Info, FileText, ChevronRight, X, User, HeartHandshake, Menu, Activity, Calendar, ShieldAlert, CreditCard, BookOpen, Globe, Feather, Printer, Lock } from 'lucide-react';
+import { Shield, Sparkles, Info, FileText, ChevronRight, X, User, HeartHandshake, Menu, Activity, Calendar, ShieldAlert, CreditCard, BookOpen, Globe, Feather, Printer, Lock, Award } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { AboutMeModal } from './AboutMeModal';
 
 interface HeaderProps {
   currentTab: TabType;
@@ -15,6 +16,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpenFullDossier, lang, setLang }) => {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+  const [showAboutModal, setShowAboutModal] = useState(false);
 
   const menuItems = [
     {
@@ -204,6 +206,23 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                     </span>
                     <strong className="text-[#C5A059]">{PROTOCOL_INFO.operatorName}</strong>
                   </div>
+
+                  {/* Teresa / About me Button */}
+                  <button
+                    onClick={() => {
+                      setShowHamburgerMenu(false);
+                      setShowAboutModal(true);
+                    }}
+                    className="mt-2.5 w-full p-2.5 bg-[#C5A059]/20 hover:bg-[#C5A059] text-[#DFC08D] hover:text-white rounded-xl border border-[#C5A059]/50 text-xs font-bold uppercase tracking-wider flex items-center justify-between transition group shadow-sm"
+                  >
+                    <div className="flex items-center space-x-2">
+                      <Award className="w-4 h-4 text-[#C5A059] group-hover:text-white" />
+                      <span>Teresa / About me</span>
+                    </div>
+                    <span className="text-[9px] text-[#C5A059] group-hover:text-white bg-black/40 px-2 py-0.5 rounded font-normal">
+                      Operatore Olistico
+                    </span>
+                  </button>
                 </div>
 
                 {/* Privacy & Security Disclaimer in Drawer */}
@@ -383,6 +402,13 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
           </div>
         )}
       </AnimatePresence>
+
+      {/* About Me Modal for Teresa */}
+      <AboutMeModal
+        isOpen={showAboutModal}
+        onClose={() => setShowAboutModal(false)}
+        lang={lang}
+      />
     </>
   );
 };

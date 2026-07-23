@@ -2,7 +2,7 @@ import { ChakraData, TimelinePhase, RiskItem, ReflectionQuestion, PaymentBreakdo
 
 export const PROTOCOL_INFO = {
   code: "N1 - INV-178479",
-  operatorName: "TAROT ITALIA",
+  operatorName: "TAROT ITALIA (Teresa)",
   clientName: "Sara Ouachtouk",
   targetName: "Mahdi",
   title: "Svincolo Ancestrale",
@@ -11,6 +11,62 @@ export const PROTOCOL_INFO = {
   probability: "85-90%",
   durationDays: 36,
   motto: "Omnia vincit Amor, sed fati necessitas est.",
+};
+
+export const TERESA_OPERATOR_PROFILE = {
+  name: "Teresa",
+  brand: "TAROT ITALIA",
+  title: "Operatore Olistico & Tarologa Esoterica",
+  subtitle: "Profilo Professionale, Formazione & Qualifiche Certificate",
+  academicEducation: {
+    degree: "Laurea in Tecniche della Comunicazione Visiva",
+    institution: "Accademia di Belle Arti di Macerata",
+    description: "Formazione universitaria orientata allo studio e alla padronanza dei linguaggi visivi, simbolici e figurativi."
+  },
+  qualifications: [
+    {
+      id: "tarot-2025",
+      title: "Lettura dei Tarocchi Rider Waite Smith",
+      subtitle: "Percorso 2025",
+      mentor: "Mariangela Aggio (Taromante)",
+      type: "Tarologia & Simbolismo"
+    },
+    {
+      id: "tarot-esoterico",
+      title: "Tarologa - Percorso Annuale (2023/2024)",
+      subtitle: "Accademia Nazionale del Tarocco Esoterico",
+      mentor: "Dorian Bones (Artista, libero ricercatore, membro fondatore della Società dello Zolfo e direttore dell’Accademia)",
+      type: "Tarologia Esoterica"
+    },
+    {
+      id: "reiki",
+      title: "Operatore Certificato Reiki di II Livello",
+      subtitle: "Lignaggio Originale M. Usui®",
+      mentor: "Maestro F. Tartuferi",
+      type: "Energetica & Channelling"
+    },
+    {
+      id: "mindfulness",
+      title: "Facilitatore Mindfulness",
+      subtitle: "Mindfulness Educators ®",
+      accreditation: "Accreditata IPHM (International Practitioners of Holistic Medicine)",
+      type: "Mindfulness & Presenza"
+    },
+    {
+      id: "naturopatia",
+      title: "Operatore Naturopata",
+      subtitle: "Future Academy ®",
+      accreditation: "Accreditata IPHM (International Practitioners of Holistic Medicine)",
+      type: "Naturopatia Olistica"
+    },
+    {
+      id: "ptah-piramidi",
+      title: "Pendolo PTAH & Elementi di Piramidologia",
+      subtitle: "Individuazione ed elaborazione energie negative (oggetti, persone, luoghi, piante, animali)",
+      mentor: "Emiliano Amici (Operatore Olistico)",
+      type: "Radiestesia & Chirurgia Energetica"
+    }
+  ]
 };
 
 export const CHAKRA_INITIAL_DATA: ChakraData[] = [
