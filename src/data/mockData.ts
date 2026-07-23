@@ -86,85 +86,117 @@ export const CHAKRA_INITIAL_DATA: ChakraData[] = [
   }
 ];
 
+export const TECHNICAL_PROTOCOL = {
+  title: "Parte 3: Protocollo Tecnico Operativo",
+  subtitle: "Oltre all'uso dei sigilli cerimoniali, l'intervento si avvarrà di strumentazione di alta precisione.",
+  tools: [
+    {
+      id: "ptah",
+      name: "1. IL PENDOLO PTAH",
+      type: "Chirurgia Energetica",
+      phases: [
+        {
+          code: "Fase A - Estrazione",
+          details: "Utilizzato come un bisturi per individuare e sradicare i cordoni parassitari che collegano Mahdi al clan familiare (Sâoud, Zakia e sorella)."
+        },
+        {
+          code: "Fase B - Dissipazione",
+          details: "Frammentazione delle cristallizzazioni di apatia nel campo aurico. Il pendolo emette frequenze che sgretolano la \"corazza\" saturnina che lo rende freddo."
+        },
+        {
+          code: "Fase C - Rinnescamento",
+          details: "Iniezione di energia vitale direttamente nei centri sacrali per riaccendere la polarità maschile e il desiderio verso Sara."
+        }
+      ]
+    },
+    {
+      id: "piramide",
+      name: "2. LA PIRAMIDE NUBIANA",
+      type: "Acceleratore di Manifestazione",
+      description: "I testimoni (nomi e date) di Mahdi e Sara verranno posti all'interno di una Piramide Nubiana. La sua pendenza specifica (72°) funge da acceleratore. La piramide proteggerà l'operazione dalle interferenze esterne della famiglia e manterrà l'energia del \"Rinnescamento\" costante per tutto il mese."
+    }
+  ]
+};
+
 export const TIMELINE_PHASES: TimelinePhase[] = [
   {
     id: 1,
-    code: "FASE I",
-    title: "Schermatura & Preparazione",
-    subtitle: "Consacrazione degli strumenti & Scudo Protettivo",
-    dates: "23 - 27 Luglio",
+    code: "FASE 1",
+    title: "Preparazione",
+    subtitle: "Consacrazione Strumenti & Scudo Protettivo",
+    dates: "Fine Luglio (23 - 31 Luglio)",
     startDate: "2026-07-23",
-    endDate: "2026-07-27",
+    endDate: "2026-07-31",
     lunarPhase: "Preparazione",
     status: "active",
-    description: "Attivazione dello scudo per Sara. Preparazione dei testimoni energetici, pulizia degli incensi cerimoniali e purificazione del campo aurico.",
+    description: "Consacrazione strumenti e creazione dello scudo protettivo per Sara e Teresa. Attivazione dei testimoni energetici e schermatura preventiva.",
     keyActions: [
-      "Tracciamento del pentacolo di protezione per Sara",
-      "Consacrazione dei testimoni organici di Mahdi",
-      "Sigillatura delle vie di dispersione energetica",
-      "Preparazione delle miscele d'incenso a base di Mirra e Ruta"
+      "Consacrazione degli strumenti cerimoniali e del Pendolo Ptah",
+      "Creazione dello scudo protettivo per Sara e Teresa",
+      "Preparazione e attivazione dei testimoni per la Piramide Nubiana",
+      "Schermatura del campo aurico contro ingerenze estroverse"
     ],
-    protocolRule: "Mantenere la calma emotiva e non innescare discussioni sui temi familiari durante questa finestra.",
+    protocolRule: "Mantenere uno stato d'animo sereno e fiducioso per non interferire con la schermatura iniziale.",
     intensity: "Medium"
   },
   {
     id: 2,
-    code: "FASE II",
-    title: "Rituale I: Il Grande Taglio",
-    subtitle: "Recisione dei Cordoni Tossici",
-    dates: "03 - 11 Agosto",
-    startDate: "2026-08-03",
-    endDate: "2026-08-11",
-    lunarPhase: "Calante",
+    code: "FASE 2",
+    title: "Il Taglio",
+    subtitle: "Rituale di Bando & Estrazione dei Legami Tossici",
+    dates: "Inizio Agosto (01 - 10 Agosto)",
+    startDate: "2026-08-01",
+    endDate: "2026-08-10",
+    lunarPhase: "Luna Calante",
     status: "upcoming",
-    description: "Esecuzione durante la LUNA CALANTE per dissolvere i vincoli di dipendenza. Recisione dei cordoni ombelicali tossici. Mahdi viene svincolato dal senso di colpa e dalle pretese finanziarie sproporzionate del clan.",
+    description: "Esecuzione del RITUALE DI BANDO durante la Luna Calante. Utilizzo del Pendolo Ptah (Fase A: Estrazione & Fase B: Dissipazione) per individuare e sradicare i cordoni parassitari che collegano Mahdi al clan familiare (Sâoud, Zakia e sorella) e sgretolare la corazza saturnina.",
     keyActions: [
-      "Operazione notturna di recisione simbolico-energetica",
-      "Neutralizzazione dei ricatti emotivi materni",
-      "Annullamento dell'ancoraggio energetico sui risparmi di Mahdi",
-      "Iniezione di fluido purificatore di piombo ed elio"
+      "Esecuzione del RITUALE DI BANDO sotto Luna Calante",
+      "Pendolo Ptah - Fase A: Estrazione dei cordoni dal clan (Sâoud, Zakia e sorella)",
+      "Pendolo Ptah - Fase B: Dissipazione e sgretolamento della corazza saturnina",
+      "Neutralizzazione dei tentativi di condizionamento emotivo"
     ],
-    protocolRule: "Potrebbe manifestarsi un momentaneo distacco o freddezza da parte di Mahdi. Non allarmarsi: è la reazione al taglio.",
+    protocolRule: "Durante il 'taglio', Mahdi potrebbe mostrare freddezza o distacco reattivo. Non allarmarsi: è il naturale smaltimento della corazza.",
     intensity: "High"
   },
   {
     id: 3,
-    code: "FASE III",
-    title: "Assestamento & Vuoto Sacro",
-    subtitle: "Integrazione dell'Anima",
-    dates: "12 - 14 Agosto",
-    startDate: "2026-08-12",
-    endDate: "2026-08-14",
-    lunarPhase: "Nuova",
+    code: "FASE 3",
+    title: "Il Vuoto",
+    subtitle: "Pausa di Assestamento & Smaltimento",
+    dates: "Metà Agosto (11 - 15 Agosto)",
+    startDate: "2026-08-11",
+    endDate: "2026-08-15",
+    lunarPhase: "Luna Nuova",
     status: "upcoming",
-    description: "Fase durante la LUNA NUOVA. Vuoto sacro necessario affinché la struttura psichica e l'anima di Mahdi integrino la libertà acquisita senza contraccolpi.",
+    description: "Pausa di assestamento durante la Luna Nuova. Mahdi deve smaltire il distacco dai vecchi schemi familiari in un vuoto rigenerativo proteggente.",
     keyActions: [
-      "Silenzio rituale e sospensione delle cariche dirette",
-      "Monitoraggio a distanza dei flussi aurici",
-      "Stabilizzazione della frequenza di Sara",
-      "Preparazione del terreno per la riaccensione"
+      "Silenzio operativo e riassestamento del campo psichico",
+      "Smaltimento progressivo dell'influenza del clan familiare",
+      "Integrazione dei nuovi livelli di autonomia di Mahdi",
+      "Schermatura passiva mediante la Piramide Nubiana"
     ],
-    protocolRule: "Massima cautela nelle comunicazioni. Evitare pressioni o richieste di chiarimenti immediati.",
+    protocolRule: "Pausa di assestamento: evitare di sollecitare Mahdi con discussioni o richieste pressanti.",
     intensity: "Resting"
   },
   {
     id: 4,
-    code: "FASE IV",
-    title: "Rituale II: Riaccensione Sacrale",
-    subtitle: "Magnetismo & Unione Rinnovata",
-    dates: "18 - 26 Agosto",
-    startDate: "2026-08-18",
-    endDate: "2026-08-26",
-    lunarPhase: "Crescente",
+    code: "FASE 4",
+    title: "La Riaccensione",
+    subtitle: "Rituale di Riattivazione & Stabilizzazione",
+    dates: "Seconda metà Agosto (16 - 31 Agosto)",
+    startDate: "2026-08-16",
+    endDate: "2026-08-31",
+    lunarPhase: "Luna Crescente",
     status: "upcoming",
-    description: "Invocazione sotto la LUNA CRESCENTE. Iniezione di energia sacrale e riaccensione del fuoco interiore. Riattivazione del desiderio fisico spontaneo e della visione condivisa di un futuro con Sara.",
+    description: "Esecuzione del RITUALE DI RIATTIVAZIONE sotto Luna Crescente. Utilizzo del Pendolo Ptah (Fase C: Rinnescamento) per l'iniezione di energia vitale nei centri sacrali, e della Piramide Nubiana (72°) per stabilizzare il ritorno della passione verso Sara.",
     keyActions: [
-      "Attivazione del sigillo di attrazione Venusiana",
-      "Incanalamento di fluido energetico rigenerante",
-      "Riallineamento del chakra del Cuore con quello di Sara",
-      "Consolidamento della certezza di scelta di Mahdi"
+      "Esecuzione del RITUALE DI RIATTIVAZIONE sotto Luna Crescente",
+      "Pendolo Ptah - Fase C: Rinnescamento dell'energia nei centri sacrali",
+      "Attivazione costante della Piramide Nubiana (72°) con i testimoni",
+      "Stabilizzazione del desiderio e del legame di coppia con Sara"
     ],
-    protocolRule: "Accogliere il suo riavvicinamento con dolcezza, senza rinfacciare le assenze passate.",
+    protocolRule: "Accogliere il ritorno della passione e dell'iniziativa di Mahdi con apertura, dolcezza e naturalezza.",
     intensity: "High"
   }
 ];
@@ -172,29 +204,29 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
 export const RISK_MATRIX: RiskItem[] = [
   {
     id: "risk-1",
-    title: "Instabilità Emotiva Temporanea di Mahdi",
-    category: "Psicologico / Energetico",
-    description: "Nel periodo immediatamente successivo al taglio (3-11 Agosto), Mahdi potrebbe avvertire un senso di spaesamento o vertigine privo di causa apparente.",
+    title: "Sbalzi d'Umore Necessari alla Guarigione",
+    category: "Fattore di Pericolo / Psichico",
+    description: "Durante il 'taglio' e la rimozione delle sovrastrutture, Mahdi potrebbe avere momenti di sbalzi d'umore o temporanea disorientazione necessari al processo di guarigione e svincolo.",
     impactLevel: "Alta",
-    mitigationStrategy: "La schermatura di Sara assorbe la dissonanza. Si raccomanda dolcezza e assenza di giudizio.",
+    mitigationStrategy: "La schermatura di Sara ammortizza le oscillazioni. Mantenere presenza calma senza sollecitare lo scontro.",
     status: "monitored"
   },
   {
     id: "risk-2",
-    title: "Reazione Dissonante del Clan Familiare",
-    category: "Relazionale",
-    description: "La madre o altri membri del clan potrebbero avvertire la perdita di controllo e tentare ricatti emotivi ad alta intensità per riagganciarlo.",
-    impactLevel: "Media",
-    mitigationStrategy: "Lo scudo rituale impedisce ai dardi emotivi di penetrare nel campo di Mahdi, trasformando le pressioni in disinteresse progressivo.",
+    title: "Intensificazione dei Ricatti Emotivi della Famiglia",
+    category: "Fattore di Pericolo / Relazionale",
+    description: "Durante il 'taglio', la famiglia (Sâoud, Zakia e sorella) potrebbe avvertire il distacco energetico e tentare di intensificare le pressioni ed i ricatti emotivi per riprendere il controllo.",
+    impactLevel: "Alta",
+    mitigationStrategy: "La Piramide Nubiana (72°) schermerà l'operazione dalle interferenze esterne della famiglia per tutto il mese.",
     status: "contained"
   },
   {
     id: "risk-3",
-    title: "Colpo di Ritorno (Energia Riflessa)",
-    category: "Esoterico / Protezione",
-    description: "Possibile rimbalzo delle cariche negative inviate involontariamente dai familiari in opposizione.",
-    impactLevel: "Bassa",
-    mitigationStrategy: "Totalmente neutralizzato mediante il tracciamento dei testimoni e la benedizione del nome di Sara.",
+    title: "Ricostruzione dell'Identità da Zero",
+    category: "Evolutivo / Relazionale",
+    description: "Una volta libero dalle catene ancestrali, Mahdi dovrà ricostruire la propria identità e autonomia decisionale senza il pilota automatico del senso di colpa.",
+    impactLevel: "Media",
+    mitigationStrategy: "Supportare l'emancipazione con amore sano, complicità e fiducia nell'uomo autonomo che sta emergendo.",
     status: "contained"
   }
 ];
@@ -202,18 +234,18 @@ export const RISK_MATRIX: RiskItem[] = [
 export const REFLECTION_QUESTIONS: ReflectionQuestion[] = [
   {
     id: 1,
-    question: "Lo sto liberando per il suo vero bene o per pacificare la mia ansia?",
-    context: "Il rituale non aggiunge un vincolo, ma rimuove una zavorra. Devi essere pronta a vederlo agire con reale libero arbitrio."
+    question: "Sei pronta, Sara, ad accogliere un uomo che, una volta libero, potrebbe dover ricostruire la propria identità da zero?",
+    context: "Svincolarsi dai condizionamenti del clan significa abbandonare vecchie abitudini e definire un nuovo modo di vivere il futuro in autonomia."
   },
   {
     id: 2,
-    question: "Sono pronta ad accettare l'uomo autonomo che emergerà dopo il taglio?",
-    context: "Senza la scusa della pressione familiare, Mahdi mostrerà la sua vera essenza matura."
+    question: "Riesci a mantenere la calma se durante il 'taglio' la famiglia intensificherà i ricatti emotivi?",
+    context: "La reazione disperata del clan è la prova dell'efficacia del taglio: la Piramide Nubiana fa da scudo, sta a te non farti spaventare."
   },
   {
     id: 3,
-    question: "Saprò colmare con amore sano il vuoto che la distanza dalla famiglia lascerà?",
-    context: "Il vuoto lasciatogli dal clan necessita di essere riempito di serenità, rispetto e complicità quotidiana."
+    question: "Saprò accogliere con dolcezza e fiducia la riaccensione del desiderio in Luna Crescente?",
+    context: "Il Rinnescamento del Pendolo Ptah riattiverà la polarità maschile, offrendo a Mahdi lo spazio per sceglerti liberamente."
   }
 ];
 

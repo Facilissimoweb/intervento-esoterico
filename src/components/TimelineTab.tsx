@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TimelinePhase } from '../types';
-import { TIMELINE_PHASES } from '../data/mockData';
-import { Calendar, Clock, Moon, CheckCircle2, AlertCircle, ShieldCheck, ArrowRight, Flame, Sparkles } from 'lucide-react';
+import { TIMELINE_PHASES, TECHNICAL_PROTOCOL } from '../data/mockData';
+import { Calendar, Clock, Moon, CheckCircle2, AlertCircle, ShieldCheck, ArrowRight, Flame, Sparkles, Compass, Zap, Shield } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface TimelineTabProps {
@@ -240,6 +240,66 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
           </div>
         </div>
       </motion.div>
+
+      {/* PARTE 3: PROTOCOLLO TECNICO OPERATIVO */}
+      <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/40 space-y-4 shadow-md bg-[#131822]">
+        <div className="flex items-center space-x-2 text-[#C5A059] border-b border-[#C5A059]/30 pb-2.5">
+          <Zap className="w-5 h-5 text-[#C5A059]" />
+          <div>
+            <h3 className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#DFC08D]">
+              {TECHNICAL_PROTOCOL.title}
+            </h3>
+            <p className="text-[10px] text-gray-400 font-sans">
+              {TECHNICAL_PROTOCOL.subtitle}
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          {/* Tool 1: Pendolo Ptah */}
+          <div className="p-3.5 bg-[#1A202C] rounded-xl border border-[#C5A059]/25 space-y-2">
+            <div className="flex justify-between items-center border-b border-[#C5A059]/20 pb-1.5">
+              <h4 className="font-serif-heading font-bold text-xs text-[#DFC08D] flex items-center space-x-1.5">
+                <Compass className="w-4 h-4 text-[#C5A059]" />
+                <span>{TECHNICAL_PROTOCOL.tools[0].name}</span>
+              </h4>
+              <span className="text-[9px] uppercase font-bold text-[#C5A059] bg-[#C5A059]/10 px-2 py-0.5 rounded border border-[#C5A059]/30">
+                {TECHNICAL_PROTOCOL.tools[0].type}
+              </span>
+            </div>
+
+            <div className="space-y-2 pt-1">
+              {TECHNICAL_PROTOCOL.tools[0].phases?.map((ptahPhase, idx) => (
+                <div key={idx} className="bg-[#131822] p-2.5 rounded-lg border border-gray-800 space-y-0.5">
+                  <strong className="text-[11px] text-[#DFC08D] font-serif-heading block">
+                    {ptahPhase.code}
+                  </strong>
+                  <p className="text-[11px] text-gray-300 leading-relaxed">
+                    {ptahPhase.details}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tool 2: Piramide Nubiana */}
+          <div className="p-3.5 bg-[#1A202C] rounded-xl border border-[#C5A059]/25 space-y-2">
+            <div className="flex justify-between items-center border-b border-[#C5A059]/20 pb-1.5">
+              <h4 className="font-serif-heading font-bold text-xs text-[#DFC08D] flex items-center space-x-1.5">
+                <Shield className="w-4 h-4 text-[#C5A059]" />
+                <span>{TECHNICAL_PROTOCOL.tools[1].name}</span>
+              </h4>
+              <span className="text-[9px] uppercase font-bold text-[#C5A059] bg-[#C5A059]/10 px-2 py-0.5 rounded border border-[#C5A059]/30">
+                {TECHNICAL_PROTOCOL.tools[1].type}
+              </span>
+            </div>
+
+            <p className="text-[11px] text-gray-300 leading-relaxed pt-1">
+              {TECHNICAL_PROTOCOL.tools[1].description}
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* Guidelines Box */}
       <div className="p-4 bg-[#131822] rounded-xl border border-[#C5A059]/30 text-xs space-y-2 shadow-sm">

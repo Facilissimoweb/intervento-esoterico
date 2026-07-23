@@ -1,5 +1,5 @@
 import React from 'react';
-import { PROTOCOL_INFO, CHAKRA_INITIAL_DATA, TIMELINE_PHASES, RISK_MATRIX, PAYMENT_DATA } from '../data/mockData';
+import { PROTOCOL_INFO, CHAKRA_INITIAL_DATA, TIMELINE_PHASES, TECHNICAL_PROTOCOL, RISK_MATRIX, REFLECTION_QUESTIONS, PAYMENT_DATA } from '../data/mockData';
 import { FileText, X, Printer, Shield, CheckCircle, Flame, Lock } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -116,16 +116,44 @@ export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onCl
             </div>
           </div>
 
-          {/* Section 3: Cronoprogramma Operativo */}
+          {/* Section 3: Protocollo Tecnico Operativo */}
           <div className="space-y-3">
             <h2 className="font-serif-heading text-sm font-bold uppercase text-[#DFC08D] border-b border-[#C5A059]/20 pb-1">
-              3. Cronoprogramma delle Fasi Lunari
+              3. Protocollo Tecnico Operativo
             </h2>
+            <p className="text-gray-300 text-[11px]">
+              {TECHNICAL_PROTOCOL.subtitle}
+            </p>
+            <div className="space-y-2">
+              <div className="p-3 bg-[#1A202C] rounded-xl border border-gray-800 space-y-1.5">
+                <strong className="text-[#C5A059] font-serif-heading block text-xs">1. IL PENDOLO PTAH (Chirurgia Energetica)</strong>
+                {TECHNICAL_PROTOCOL.tools[0].phases?.map((ptahPhase, idx) => (
+                  <p key={idx} className="text-gray-300 text-[11px] pl-2 border-l border-[#C5A059]/30">
+                    <strong className="text-[#DFC08D]">{ptahPhase.code}:</strong> {ptahPhase.details}
+                  </p>
+                ))}
+              </div>
+
+              <div className="p-3 bg-[#1A202C] rounded-xl border border-gray-800 space-y-1">
+                <strong className="text-[#C5A059] font-serif-heading block text-xs">2. LA PIRAMIDE NUBIANA (Acceleratore di Manifestazione)</strong>
+                <p className="text-gray-300 text-[11px]">{TECHNICAL_PROTOCOL.tools[1].description}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4: Cronoprogramma Luglio-Agosto */}
+          <div className="space-y-3">
+            <h2 className="font-serif-heading text-sm font-bold uppercase text-[#DFC08D] border-b border-[#C5A059]/20 pb-1">
+              4. Cronoprogramma Operativo (Luglio-Agosto)
+            </h2>
+            <p className="text-gray-300 text-[11px]">
+              L'operazione richiede un intero ciclo lunare per stabilizzarsi fisicamente.
+            </p>
             <div className="space-y-2">
               {TIMELINE_PHASES.map(p => (
                 <div key={p.id} className="p-3 bg-[#1A202C] text-[#E2E8F0] rounded-xl space-y-1 border border-gray-800">
                   <div className="flex justify-between items-center text-[#C5A059] font-bold">
-                    <span>{p.code} - {p.title} ({p.lunarPhase})</span>
+                    <span>{p.code}: {p.title} ({p.lunarPhase})</span>
                     <span className="text-xs text-gray-400">{p.dates}</span>
                   </div>
                   <p className="text-gray-300 text-[11px]">{p.description}</p>
@@ -134,10 +162,33 @@ export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onCl
             </div>
           </div>
 
-          {/* Section 4: Investimento Economico */}
+          {/* Section 5: Riflessioni Etiche e Rischi */}
           <div className="space-y-3">
             <h2 className="font-serif-heading text-sm font-bold uppercase text-[#DFC08D] border-b border-[#C5A059]/20 pb-1">
-              4. Oneri e Piano Finanziario
+              5. Riflessioni Etiche e Fattori di Pericolo
+            </h2>
+            <div className="p-3.5 bg-[#1A202C] rounded-xl border border-gray-800 space-y-2 text-[11px] text-gray-300">
+              <div>
+                <strong className="text-[#C5A059] block font-serif-heading">Domanda Etica Guida:</strong>
+                <p className="italic text-gray-200">"{REFLECTION_QUESTIONS[0].question}"</p>
+              </div>
+              <div className="pt-2 border-t border-gray-800">
+                <strong className="text-[#EF4444] block font-serif-heading">Fattori di Pericolo e Mitigazione:</strong>
+                <ul className="list-disc pl-4 space-y-1 mt-1 text-gray-300">
+                  {RISK_MATRIX.map(r => (
+                    <li key={r.id}>
+                      <strong className="text-gray-200">{r.title}:</strong> {r.description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 6: Investimento Economico */}
+          <div className="space-y-3">
+            <h2 className="font-serif-heading text-sm font-bold uppercase text-[#DFC08D] border-b border-[#C5A059]/20 pb-1">
+              6. Oneri e Piano Finanziario
             </h2>
             <div className="p-4 bg-[#1A202C] rounded-xl border border-gray-800 space-y-2 text-gray-300">
               <div className="flex justify-between border-b border-gray-700 pb-1 font-bold text-[#DFC08D]">
