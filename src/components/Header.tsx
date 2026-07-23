@@ -210,9 +210,9 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                   <div className="flex justify-between items-center text-gray-300 pt-1 border-t border-white/10">
                     <span className="text-gray-400 flex items-center space-x-1">
                       <Feather className="w-3 h-3 text-[#C5A059]" />
-                      <span>{lang === 'it' ? 'Autore Diario:' : 'Auteur Journal :'}</span>
+                      <span>{lang === 'it' ? 'Operatore:' : 'Opérateur :'}</span>
                     </span>
-                    <strong className="text-[#C5A059]">{lang === 'it' ? 'L\'Operatore' : 'L\'Opérateur'}</strong>
+                    <strong className="text-[#C5A059]">{PROTOCOL_INFO.operatorName}</strong>
                   </div>
                 </div>
 
@@ -328,8 +328,8 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
                       <strong className="text-gray-100">{PROTOCOL_INFO.targetName}</strong>
                     </div>
                     <div>
-                      <span className="text-gray-400 block">{lang === 'it' ? 'Redattore Diario:' : 'Rédacteur du Journal :'}</span>
-                      <strong className="text-gray-100">{lang === 'it' ? 'L\'Operatore' : 'L\'Opérateur'}</strong>
+                      <span className="text-gray-400 block">{lang === 'it' ? 'Operatore Responsabile:' : 'Opérateur Responsable :'}</span>
+                      <strong className="text-gray-100">{PROTOCOL_INFO.operatorName}</strong>
                     </div>
                     <div>
                       <span className="text-gray-400 block">{lang === 'it' ? 'Codice Archiviazione:' : 'Code d\'Archivage :'}</span>

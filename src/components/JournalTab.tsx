@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { JournalEntry } from '../types';
+import { PROTOCOL_INFO } from '../data/mockData';
 import { BookOpen, Plus, Trash2, Calendar, Tag, Sparkles, Lock, Save, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -84,7 +85,7 @@ export const JournalTab: React.FC<JournalTabProps> = ({ lang }) => {
         </h2>
         <div className="mt-1 text-xs text-gray-300 space-y-1">
           <p className="font-medium bg-[#1A202C] px-2.5 py-1 rounded border border-[#C5A059]/30 inline-block text-[11px] text-[#DFC08D]">
-            <strong>{lang === 'it' ? 'Richiedente:' : 'Demandeur :'}</strong> Sara Ouachtouk &nbsp;|&nbsp; <strong>{lang === 'it' ? 'Soggetto:' : 'Sujet :'}</strong> Mahdi
+            <strong>{lang === 'it' ? 'Operatore:' : 'Opérateur :'}</strong> {PROTOCOL_INFO.operatorName} &nbsp;|&nbsp; <strong>{lang === 'it' ? 'Richiedente:' : 'Demandeur :'}</strong> Sara Ouachtouk &nbsp;|&nbsp; <strong>{lang === 'it' ? 'Soggetto:' : 'Sujet :'}</strong> Mahdi
           </p>
           <p className="text-[11px] text-gray-300 leading-relaxed mt-1">
             {lang === 'it'

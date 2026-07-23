@@ -1,7 +1,8 @@
 import { ChakraData, TimelinePhase, RiskItem, ReflectionQuestion, PaymentBreakdown } from '../types';
 
 export const PROTOCOL_INFO = {
-  code: "INV-178479",
+  code: "N1 - INV-178479",
+  operatorName: "TAROT ITALIA",
   clientName: "Sara Ouachtouk",
   targetName: "Mahdi",
   title: "Svincolo Ancestrale",

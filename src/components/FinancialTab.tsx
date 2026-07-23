@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PAYMENT_DATA } from '../data/mockData';
+import { PAYMENT_DATA, PROTOCOL_INFO } from '../data/mockData';
 import { CreditCard, CheckCircle2, Clock, FileCheck, ArrowRight, ShieldCheck, Download, Sparkles, Check, DollarSign } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -308,7 +308,7 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
                 RICEVUTA DI REGOLAZIONE CONTO
               </span>
               <span className="text-[10px] text-gray-400 uppercase">
-                Protocollo INV-178479 • Sara Ouachtouk
+                Protocollo {PROTOCOL_INFO.code} • {PROTOCOL_INFO.operatorName} • Sara Ouachtouk
               </span>
             </div>
 

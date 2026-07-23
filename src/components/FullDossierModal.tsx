@@ -170,7 +170,7 @@ export const FullDossierModal: React.FC<FullDossierModalProps> = ({ isOpen, onCl
             </div>
             <div>
               <span className="text-gray-400 text-[10px] block">L'Operatore Responsabile</span>
-              <strong className="font-serif-heading text-xs text-[#DFC08D]">Protocollo INV-178479</strong>
+              <strong className="font-serif-heading text-xs text-[#DFC08D]">{PROTOCOL_INFO.operatorName}</strong>
             </div>
           </div>
         </div>
