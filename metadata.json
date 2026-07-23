@@ -1,0 +1,6 @@
+{
+  "name": "Fascicolo d'Indagine - Protocollo INV-178479",
+  "description": "Mobile-first dossier and operational timeline for Protocollo di Svincolo Ancestrale.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
