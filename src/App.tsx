@@ -12,8 +12,9 @@ import { RiskTab } from './components/RiskTab';
 import { FinancialTab } from './components/FinancialTab';
 import { JournalTab } from './components/JournalTab';
 import { FullDossierModal } from './components/FullDossierModal';
+import { DisclaimerModal } from './components/DisclaimerModal';
 import { PROTOCOL_INFO } from './data/mockData';
-import { Shield, Sparkles, FileText, ChevronRight } from 'lucide-react';
+import { Shield, Sparkles, FileText, ChevronRight, ShieldAlert } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { initGoogleTranslate, setGoogleTranslateLang } from './utils/googleTranslate';
 
@@ -21,6 +22,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('diagnosi');
   const [lang, setLang] = useState<'it' | 'fr'>('it');
   const [isDossierOpen, setIsDossierOpen] = useState(false);
+  const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
 
   useEffect(() => {
     initGoogleTranslate();
@@ -143,6 +145,23 @@ export default function App() {
             )}
           </AnimatePresence>
         </main>
+
+        {/* Footer with Legal Notice & Disclaimer */}
+        <footer className="mt-auto p-4 border-t border-[#C5A059]/20 bg-[#0D111A] text-center space-y-3">
+          <p className="text-[10px] text-gray-400 leading-normal">
+            Tarot Italia di Maria Teresa Rogani P.Iva 02136780430 è studio Olistico a Macerata ai sensi di Legge 4/2013.
+          </p>
+
+          <div>
+            <button
+              onClick={() => setIsDisclaimerOpen(true)}
+              className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-[#1A202C] hover:bg-[#252D3D] border border-[#C5A059]/30 text-[#DFC08D] text-[10px] font-bold font-serif-heading uppercase tracking-wider transition"
+            >
+              <ShieldAlert className="w-3.5 h-3.5 text-[#C5A059]" />
+              <span>DISCLAIMER: Informativa e Liberatoria</span>
+            </button>
+          </div>
+        </footer>
       </div>
 
       {/* Full Dossier Modal */}
@@ -150,6 +169,12 @@ export default function App() {
         isOpen={isDossierOpen}
         onClose={() => setIsDossierOpen(false)}
         lang={lang}
+      />
+
+      {/* Legal Disclaimer Modal */}
+      <DisclaimerModal
+        isOpen={isDisclaimerOpen}
+        onClose={() => setIsDisclaimerOpen(false)}
       />
     </div>
   );
