@@ -38,19 +38,19 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
   return (
     <div className="space-y-6">
       {/* Header Card */}
-      <div className="dark-dossier-card p-6 rounded-2xl shadow-xl relative overflow-hidden border border-[#C5A059]/40">
+      <div className="dark-dossier-card p-6 rounded-2xl shadow-xl relative overflow-hidden border border-[#C5A059]/40 bg-[#131822]">
         <div className="absolute top-0 right-0 p-8 opacity-10 text-8xl font-serif text-[#C5A059] pointer-events-none">
           €
         </div>
 
         <div className="flex items-center space-x-2 text-[#C5A059] mb-1">
           <CreditCard className="w-5 h-5" />
-          <span className="font-serif-heading font-bold text-xs uppercase tracking-widest">
+          <span className="font-serif-heading font-bold text-xs uppercase tracking-widest text-[#C5A059]">
             {lang === 'it' ? 'Piano di Sostentamento & Oneri' : 'Plan Financier & Frais'}
           </span>
         </div>
 
-        <h2 className="font-serif-heading text-2xl font-bold uppercase text-[#FDFBF7]">
+        <h2 className="font-serif-heading text-2xl font-bold uppercase text-[#DFC08D]">
           {lang === 'it' ? 'Prospetto Economico Operativo' : 'Bilan Financier Opérationnel'}
         </h2>
         <p className="text-xs text-gray-300 mt-1">
@@ -108,34 +108,34 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
 
       {/* Payment Stages Interactive Cards */}
       <div className="space-y-3">
-        <h3 className="font-serif-heading text-xs font-bold uppercase text-[#2D3436] tracking-wider px-1">
+        <h3 className="font-serif-heading text-xs font-bold uppercase text-[#DFC08D] tracking-wider px-1">
           {lang === 'it' ? 'Scadenziario dei Versamenti' : 'Échéancier des Versements'}
         </h3>
 
         {/* Phase 1: Research Fee (Already Paid - Excluded from remaining) */}
-        <div className="bg-white p-4 rounded-xl border border-emerald-300 shadow-sm flex justify-between items-center">
+        <div className="bg-[#131822] p-4 rounded-xl border border-emerald-700/60 shadow-sm flex justify-between items-center">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+            <div className="w-8 h-8 rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-700/60 flex items-center justify-center font-bold">
               <Check className="w-5 h-5" />
             </div>
             <div>
-              <span className="text-[9px] font-bold text-emerald-700 uppercase tracking-widest block">
+              <span className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest block">
                 {lang === 'it' ? 'INDAGINE PRELIMINARE (GIÀ VERSATE)' : 'ENQUÊTE PRÉLIMINAIRE (DÉJÀ PAYÉE)'}
               </span>
-              <h4 className="font-serif-heading font-bold text-xs text-[#2D3436]">
+              <h4 className="font-serif-heading font-bold text-xs text-[#E2E8F0]">
                 {lang === 'it' ? 'Studio d\'Indagine & Analisi Aurica' : 'Étude d\'Enquête & Analyse Aurique'}
               </h4>
-              <p className="text-[10px] text-gray-500">
+              <p className="text-[10px] text-gray-400">
                 {lang === 'it' ? 'Importo già saldato ed escluso dal rimanente' : 'Montant déjà réglé et exclu du solde'}
               </p>
             </div>
           </div>
 
           <div className="text-right">
-            <span className="font-serif-heading font-bold text-sm text-[#2D3436] block">
+            <span className="font-serif-heading font-bold text-sm text-[#E2E8F0] block">
               € 70,00
             </span>
-            <span className="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full inline-block mt-0.5">
+            <span className="text-[9px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-700/50 px-2 py-0.5 rounded-full inline-block mt-0.5">
               {lang === 'it' ? 'GIÀ VERSATE' : 'DÉJÀ REÇU'}
             </span>
           </div>
@@ -145,8 +145,8 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
         <div
           className={`p-4 rounded-xl border transition-all ${
             advancePaid
-              ? 'bg-emerald-50/90 border-emerald-300'
-              : 'bg-white border-[#C5A059]/40 shadow-sm'
+              ? 'bg-emerald-950/40 border-emerald-700/60'
+              : 'bg-[#131822] border-[#C5A059]/40 shadow-sm'
           }`}
         >
           <div className="flex justify-between items-start">
@@ -164,17 +164,17 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
                 <span className="text-[9px] font-bold text-[#C5A059] uppercase tracking-widest block">
                   {lang === 'it' ? 'ACCONTO AVVIO FASE I' : 'ACOMPTE DE DÉMARRAGE PHASE I'}
                 </span>
-                <h4 className="font-serif-heading font-bold text-xs text-[#2D3436]">
+                <h4 className="font-serif-heading font-bold text-xs text-[#E2E8F0]">
                   {lang === 'it' ? 'Acconto Inizio Operazioni' : 'Acompte de Début des Opérations'}
                 </h4>
-                <p className="text-[10px] text-gray-500 mt-0.5">
+                <p className="text-[10px] text-gray-400 mt-0.5">
                   {lang === 'it' ? 'Scadenza: 23 Luglio 2026' : 'Échéance : 23 Juillet 2026'}
                 </p>
               </div>
             </div>
 
             <div className="text-right">
-              <span className="font-serif-heading font-bold text-base text-[#2D3436] block">
+              <span className="font-serif-heading font-bold text-base text-[#E2E8F0] block">
                 € 350,00
               </span>
               <button
@@ -192,7 +192,7 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
             </div>
           </div>
 
-          <p className="text-[11px] text-gray-600 mt-3 pt-2 border-t border-gray-200 leading-normal">
+          <p className="text-[11px] text-gray-300 mt-3 pt-2 border-t border-gray-800 leading-normal">
             {PAYMENT_DATA.advancePayment.description}
           </p>
         </div>
@@ -201,8 +201,8 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
         <div
           className={`p-4 rounded-xl border transition-all ${
             finalPaid
-              ? 'bg-emerald-50/90 border-emerald-300'
-              : 'bg-white border-gray-200 shadow-sm'
+              ? 'bg-emerald-950/40 border-emerald-700/60'
+              : 'bg-[#131822] border-gray-800 shadow-sm'
           }`}
         >
           <div className="flex justify-between items-start">
@@ -211,7 +211,7 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
                 className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs mt-0.5 ${
                   finalPaid
                     ? 'bg-emerald-600 text-white'
-                    : 'bg-gray-100 text-gray-500 border border-gray-300'
+                    : 'bg-[#1A202C] text-gray-400 border border-gray-700'
                 }`}
               >
                 {finalPaid ? <Check className="w-5 h-5" /> : '2°'}
@@ -220,17 +220,17 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
                 <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest block">
                   {lang === 'it' ? 'SALDO FINALE COMPRENSIVO' : 'SOLDE FINAL COMPLET'}
                 </span>
-                <h4 className="font-serif-heading font-bold text-xs text-[#2D3436]">
+                <h4 className="font-serif-heading font-bold text-xs text-[#E2E8F0]">
                   {lang === 'it' ? 'Saldo a Compimento Rituale' : 'Solde à l\'Achevement du Rituel'}
                 </h4>
-                <p className="text-[10px] text-gray-500 mt-0.5">
+                <p className="text-[10px] text-gray-400 mt-0.5">
                   {lang === 'it' ? 'Scadenza: Fine Agosto 2026' : 'Échéance : Fin Août 2026'}
                 </p>
               </div>
             </div>
 
             <div className="text-right">
-              <span className="font-serif-heading font-bold text-base text-[#2D3436] block">
+              <span className="font-serif-heading font-bold text-base text-[#E2E8F0] block">
                 € 180,00
               </span>
               <button
@@ -238,7 +238,7 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
                 className={`text-[9px] font-bold px-2.5 py-1 rounded-full border transition mt-1 ${
                   finalPaid
                     ? 'bg-emerald-700 text-white border-emerald-700'
-                    : 'bg-gray-800 text-white border-gray-800 hover:bg-[#C5A059]'
+                    : 'bg-gray-800 text-white border-gray-700 hover:bg-[#C5A059]'
                 }`}
               >
                 {finalPaid
@@ -248,42 +248,42 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
             </div>
           </div>
 
-          <p className="text-[11px] text-gray-600 mt-3 pt-2 border-t border-gray-200 leading-normal">
+          <p className="text-[11px] text-gray-300 mt-3 pt-2 border-t border-gray-800 leading-normal">
             {PAYMENT_DATA.finalBalance.description}
           </p>
         </div>
       </div>
 
       {/* Itemization breakdown */}
-      <div className="parchment-card p-4 rounded-xl border border-[#C5A059]/30 text-xs space-y-3">
-        <h4 className="font-serif-heading font-bold text-xs uppercase text-[#2D3436] tracking-wider flex items-center space-x-1.5">
+      <div className="parchment-card p-4 rounded-xl border border-[#C5A059]/30 text-xs space-y-3 bg-[#131822]">
+        <h4 className="font-serif-heading font-bold text-xs uppercase text-[#DFC08D] tracking-wider flex items-center space-x-1.5">
           <FileCheck className="w-4 h-4 text-[#C5A059]" />
           <span>{lang === 'it' ? 'Dettaglio Voce per Voce (Totale €600)' : 'Détail Poste par Poste (Total 600€)'}</span>
         </h4>
 
-        <ul className="space-y-2 text-[11px] text-gray-700">
-          <li className="flex justify-between items-center border-b border-gray-200/60 pb-1.5">
+        <ul className="space-y-2 text-[11px] text-gray-300">
+          <li className="flex justify-between items-center border-b border-gray-800/80 pb-1.5">
             <span>• {lang === 'it' ? 'Materiali cerimoniali di purificazione e incensi rari' : 'Matériels cérémoniels de purification et encens'}</span>
-            <strong className="text-gray-900">€ 150,00</strong>
+            <strong className="text-white">€ 150,00</strong>
           </li>
-          <li className="flex justify-between items-center border-b border-gray-200/60 pb-1.5">
+          <li className="flex justify-between items-center border-b border-gray-800/80 pb-1.5">
             <span>• {lang === 'it' ? 'Sigilli metallici e testimoni consacrati' : 'Sceaux métalliques et témoins consacrés'}</span>
-            <strong className="text-gray-900">€ 130,00</strong>
+            <strong className="text-white">€ 130,00</strong>
           </li>
-          <li className="flex justify-between items-center border-b border-gray-200/60 pb-1.5">
+          <li className="flex justify-between items-center border-b border-gray-800/80 pb-1.5">
             <span>• {lang === 'it' ? 'Schermatura continua di Sara (36 giorni)' : 'Bouclier de protection continue de Sara (36 jours)'}</span>
-            <strong className="text-gray-900">€ 170,00</strong>
+            <strong className="text-white">€ 170,00</strong>
           </li>
           <li className="flex justify-between items-center">
             <span>• {lang === 'it' ? 'Onorario operatore e monitoraggio aurico' : 'Honoraires opérateur et suivi aurique'}</span>
-            <strong className="text-gray-900">€ 150,00</strong>
+            <strong className="text-white">€ 150,00</strong>
           </li>
         </ul>
 
         {/* Receipt Generator Button */}
         <button
           onClick={() => setShowReceipt(!showReceipt)}
-          className="w-full py-2 bg-[#F4EFE6] text-[#2D3436] rounded-lg border border-[#C5A059]/40 font-serif-heading text-xs font-bold uppercase hover:bg-[#C5A059] hover:text-white transition flex items-center justify-center space-x-2"
+          className="w-full py-2 bg-[#1A202C] text-[#DFC08D] rounded-lg border border-[#C5A059]/40 font-serif-heading text-xs font-bold uppercase hover:bg-[#C5A059] hover:text-white transition flex items-center justify-center space-x-2"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
           <span>
@@ -301,13 +301,13 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="p-5 bg-white rounded-2xl border-2 border-dashed border-[#C5A059] text-xs space-y-3 font-mono shadow-md"
+            className="p-5 bg-[#1A202C] rounded-2xl border-2 border-dashed border-[#C5A059] text-xs space-y-3 font-mono shadow-md text-gray-200"
           >
-            <div className="text-center border-b border-gray-200 pb-3">
-              <span className="font-serif-heading font-bold text-sm block text-[#2D3436]">
+            <div className="text-center border-b border-gray-700 pb-3">
+              <span className="font-serif-heading font-bold text-sm block text-[#DFC08D]">
                 RICEVUTA DI REGOLAZIONE CONTO
               </span>
-              <span className="text-[10px] text-gray-500 uppercase">
+              <span className="text-[10px] text-gray-400 uppercase">
                 Protocollo INV-178479 • Sara Ouachtouk
               </span>
             </div>
@@ -315,37 +315,37 @@ export const FinancialTab: React.FC<FinancialTabProps> = ({ lang }) => {
             <div className="space-y-1.5 text-[11px]">
               <div className="flex justify-between">
                 <span>{lang === 'it' ? 'Data Emissione:' : 'Date d\'Émission :'}</span>
-                <strong className="text-gray-800">{new Date().toLocaleDateString(lang === 'it' ? 'it-IT' : 'fr-FR')}</strong>
+                <strong className="text-gray-200">{new Date().toLocaleDateString(lang === 'it' ? 'it-IT' : 'fr-FR')}</strong>
               </div>
               <div className="flex justify-between">
                 <span>{lang === 'it' ? 'Totale Intervento:' : 'Total Intervention :'}</span>
                 <span>€ 600,00</span>
               </div>
-              <div className="flex justify-between text-emerald-700 font-semibold">
+              <div className="flex justify-between text-emerald-400 font-semibold">
                 <span>{lang === 'it' ? 'Indagine Preliminare (Già Versate):' : 'Enquête Préliminaire (Déjà Payée) :'}</span>
                 <span>- € 70,00 (REGOLATO)</span>
               </div>
               <div className="flex justify-between">
                 <span>{lang === 'it' ? 'Acconto Fase I (Luglio):' : 'Acompte Phase I (Juillet) :'}</span>
-                <span className={advancePaid ? 'text-emerald-700 font-bold' : 'text-gray-400'}>
+                <span className={advancePaid ? 'text-emerald-400 font-bold' : 'text-gray-400'}>
                   {advancePaid ? '€ 350,00 (VERSATO)' : 'NON VERSATO'}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span>{lang === 'it' ? 'Saldo Finale (Agosto):' : 'Solde Final (Août) :'}</span>
-                <span className={finalPaid ? 'text-emerald-700 font-bold' : 'text-gray-400'}>
+                <span className={finalPaid ? 'text-emerald-400 font-bold' : 'text-gray-400'}>
                   {finalPaid ? '€ 180,00 (VERSATO)' : 'NON VERSATO'}
                 </span>
               </div>
             </div>
 
-            <div className="pt-2 border-t border-gray-200 flex justify-between items-center font-bold text-xs">
+            <div className="pt-2 border-t border-gray-700 flex justify-between items-center font-bold text-xs">
               <span>{lang === 'it' ? 'Totale Saldato:' : 'Total Réglé :'}</span>
               <span className="text-[#C5A059]">€ {currentTotalPaid},00 / € 600,00</span>
             </div>
 
             <div className="text-[9px] text-gray-400 text-center italic pt-2">
-              {lang === 'it' ? 'Documento ad uso strettamente riservato dell\'operatore e del committente.' : 'Document à l\'usage strictement réservé de l\'opérateur et du client.'}
+              {lang === 'it' ? 'Documento ad uso strettamente riservato dell\'operatore e del committente.' : 'Document à l\'usage strictly réservé de l\'opérateur et du client.'}
             </div>
           </motion.div>
         )}

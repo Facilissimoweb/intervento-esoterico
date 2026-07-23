@@ -66,14 +66,14 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-[#C5A059]/20 px-4 py-3 transition-all print:hidden">
+      <header className="sticky top-0 z-40 bg-[#131822]/95 backdrop-blur-md border-b border-[#C5A059]/30 px-4 py-3 transition-all print:hidden text-[#E2E8F0]">
         <div className="max-w-md mx-auto flex items-center justify-between">
           
           {/* Hamburger Menu Trigger */}
           <div className="flex items-center space-x-2.5">
             <button
               onClick={() => setShowHamburgerMenu(true)}
-              className="p-2 rounded-xl bg-[#2D3436] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition shadow-sm border border-[#C5A059]/30 flex items-center justify-center"
+              className="p-2 rounded-xl bg-[#1A202C] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition shadow-sm border border-[#C5A059]/40 flex items-center justify-center"
               aria-label="Apri Menu"
             >
               <Menu className="w-5 h-5" />
@@ -81,13 +81,13 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
 
             <div>
               <div className="flex items-center space-x-1.5">
-                <span className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#2D3436]">
+                <span className="font-serif-heading font-bold text-xs uppercase tracking-wider text-[#DFC08D]">
                   {PROTOCOL_INFO.code}
                 </span>
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
               </div>
-              <p className="text-[10px] text-[#2D3436]/70 font-medium truncate max-w-[160px]">
-                {lang === 'it' ? 'Richiedente:' : 'Demandeur :'} <strong className="text-gray-900">{PROTOCOL_INFO.clientName}</strong>
+              <p className="text-[10px] text-gray-400 font-medium truncate max-w-[160px]">
+                {lang === 'it' ? 'Richiedente:' : 'Demandeur :'} <strong className="text-gray-200">{PROTOCOL_INFO.clientName}</strong>
               </p>
             </div>
           </div>
@@ -97,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
             {/* Print Button for current page */}
             <button
               onClick={() => window.print()}
-              className="p-1.5 rounded-full bg-[#F4EFE6] text-[#2D3436] hover:bg-[#C5A059] hover:text-white transition border border-[#C5A059]/20"
+              className="p-1.5 rounded-full bg-[#1A202C] text-[#E2E8F0] hover:bg-[#C5A059] hover:text-white transition border border-[#C5A059]/30"
               title={lang === 'it' ? 'Stampa Pagina Attuale' : 'Imprimer la Page Actuelle'}
               aria-label="Stampa"
             >
@@ -107,7 +107,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
             {/* Info Trigger */}
             <button
               onClick={() => setShowInfoModal(true)}
-              className="p-1.5 rounded-full bg-[#F4EFE6] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition border border-[#C5A059]/20"
+              className="p-1.5 rounded-full bg-[#1A202C] text-[#C5A059] hover:bg-[#C5A059] hover:text-white transition border border-[#C5A059]/30"
               aria-label="Info Protocollo"
             >
               <Info className="w-4 h-4" />
@@ -116,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
             {/* Full Dossier View */}
             <button
               onClick={onOpenFullDossier}
-              className="flex items-center space-x-1 text-[10px] font-semibold bg-[#2D3436] text-[#FDFBF7] px-2.5 py-1.5 rounded-full shadow-sm hover:bg-[#C5A059] transition"
+              className="flex items-center space-x-1 text-[10px] font-semibold bg-[#2A344B] text-[#FDFBF7] px-2.5 py-1.5 rounded-full shadow-sm hover:bg-[#C5A059] transition border border-[#C5A059]/30"
             >
               <FileText className="w-3 h-3 text-[#C5A059]" />
               <span className="hidden sm:inline">Dossier</span>
@@ -295,44 +295,44 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: '100%', opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="w-full max-w-md bg-[#FDFBF7] rounded-t-2xl sm:rounded-2xl p-5 shadow-2xl border border-[#C5A059]/30 max-h-[85vh] overflow-y-auto text-[#2D3436]"
+              className="w-full max-w-md bg-[#131822] rounded-t-2xl sm:rounded-2xl p-5 shadow-2xl border border-[#C5A059]/40 max-h-[85vh] overflow-y-auto text-[#E2E8F0]"
             >
-              <div className="flex justify-between items-center pb-3 border-b border-[#C5A059]/20">
+              <div className="flex justify-between items-center pb-3 border-b border-[#C5A059]/30">
                 <div className="flex items-center space-x-2">
                   <Shield className="w-5 h-5 text-[#C5A059]" />
-                  <h3 className="font-serif-heading text-sm font-bold text-[#2D3436] uppercase tracking-wider">
+                  <h3 className="font-serif-heading text-sm font-bold text-[#DFC08D] uppercase tracking-wider">
                     {PROTOCOL_INFO.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => setShowInfoModal(false)}
-                  className="p-1 rounded-full bg-[#F4EFE6] text-[#2D3436] hover:text-red-600"
+                  className="p-1 rounded-full bg-[#1A202C] text-gray-300 hover:text-red-400"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="mt-4 space-y-4 text-xs text-[#2D3436]/90 leading-relaxed">
-                <div className="bg-[#F4EFE6] p-3 rounded-lg border border-[#C5A059]/20">
+              <div className="mt-4 space-y-4 text-xs text-gray-300 leading-relaxed">
+                <div className="bg-[#1A202C] p-3 rounded-lg border border-[#C5A059]/30">
                   <div className="flex items-center space-x-2 text-[#C5A059] font-bold mb-1">
                     <User className="w-4 h-4" />
                     <span>{lang === 'it' ? 'Anagrafica Protocollo' : 'Données du Protocole'}</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-[11px] mt-2">
                     <div>
-                      <span className="text-gray-500 block">{lang === 'it' ? 'Richiedente / Committente:' : 'Demandeur / Cliente :'}</span>
-                      <strong className="text-gray-900">{PROTOCOL_INFO.clientName}</strong>
+                      <span className="text-gray-400 block">{lang === 'it' ? 'Richiedente / Committente:' : 'Demandeur / Cliente :'}</span>
+                      <strong className="text-gray-100">{PROTOCOL_INFO.clientName}</strong>
                     </div>
                     <div>
-                      <span className="text-gray-500 block">{lang === 'it' ? 'Soggetto d\'Indagine:' : 'Sujet d\'Étude :'}</span>
-                      <strong className="text-gray-900">{PROTOCOL_INFO.targetName}</strong>
+                      <span className="text-gray-400 block">{lang === 'it' ? 'Soggetto d\'Indagine:' : 'Sujet d\'Étude :'}</span>
+                      <strong className="text-gray-100">{PROTOCOL_INFO.targetName}</strong>
                     </div>
                     <div>
-                      <span className="text-gray-500 block">{lang === 'it' ? 'Redattore Diario:' : 'Rédacteur du Journal :'}</span>
-                      <strong className="text-gray-900">{lang === 'it' ? 'L\'Operatore' : 'L\'Opérateur'}</strong>
+                      <span className="text-gray-400 block">{lang === 'it' ? 'Redattore Diario:' : 'Rédacteur du Journal :'}</span>
+                      <strong className="text-gray-100">{lang === 'it' ? 'L\'Operatore' : 'L\'Opérateur'}</strong>
                     </div>
                     <div>
-                      <span className="text-gray-500 block">{lang === 'it' ? 'Codice Archiviazione:' : 'Code d\'Archivage :'}</span>
+                      <span className="text-gray-400 block">{lang === 'it' ? 'Codice Archiviazione:' : 'Code d\'Archivage :'}</span>
                       <strong className="text-[#C5A059] font-mono">{PROTOCOL_INFO.code}</strong>
                     </div>
                   </div>

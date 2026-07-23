@@ -31,17 +31,17 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/30 relative overflow-hidden">
+      <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/30 relative overflow-hidden bg-[#131822]">
         <div className="flex items-center space-x-2 text-[#C5A059] mb-1.5">
-          <ShieldAlert className="w-5 h-5 text-[#A93226]" />
-          <span className="font-serif-heading font-bold text-xs uppercase tracking-widest text-[#A93226]">
+          <ShieldAlert className="w-5 h-5 text-[#EF4444]" />
+          <span className="font-serif-heading font-bold text-xs uppercase tracking-widest text-[#EF4444]">
             {lang === 'it' ? 'Etica, Consapevolezza & Rischi' : 'Éthique, Conscience & Risques'}
           </span>
         </div>
-        <h2 className="font-serif-heading text-xl text-[#2D3436] font-extrabold uppercase tracking-tight">
+        <h2 className="font-serif-heading text-xl text-[#DFC08D] font-extrabold uppercase tracking-tight">
           {lang === 'it' ? 'Matrice dei Rischi & Valutazione' : 'Matrice des Risques & Évaluation'}
         </h2>
-        <p className="text-xs text-[#2D3436]/80 mt-2 leading-relaxed">
+        <p className="text-xs text-gray-300 mt-2 leading-relaxed">
           {lang === 'it'
             ? 'Ogni intervento profondo comporta reassestamenti sistemici. Il protocollo prevede misure di contenimento stringenti per salvaguardare Sara e Mahdi.'
             : 'Chaque intervention profonde nécessite un rééquilibrage systémique. Des mesures strictes préservent Sara et Mahdi.'}
@@ -51,12 +51,12 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
       {/* Section 1: Domande di Consapevolezza / Guiding Reflection Questions */}
       <div className="space-y-3">
         <div className="flex justify-between items-center px-1">
-          <h3 className="font-serif-heading text-xs font-bold uppercase text-[#2D3436] tracking-wider flex items-center space-x-1.5">
+          <h3 className="font-serif-heading text-xs font-bold uppercase text-[#DFC08D] tracking-wider flex items-center space-x-1.5">
             <HelpCircle className="w-4 h-4 text-[#C5A059]" />
             <span>{lang === 'it' ? 'Domande di Valutazione sul Caso (Sara & Mahdi)' : 'Notes d\'Évaluation du Cas (Sara & Mahdi)'}</span>
           </h3>
           {savedNotice && (
-            <span className="text-[10px] text-emerald-600 font-bold flex items-center space-x-1 animate-pulse">
+            <span className="text-[10px] text-emerald-400 font-bold flex items-center space-x-1 animate-pulse">
               <Save className="w-3 h-3" />
               <span>{lang === 'it' ? 'Salvato!' : 'Enregistré !'}</span>
             </span>
@@ -67,17 +67,17 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
           {REFLECTION_QUESTIONS.map((q) => (
             <div
               key={q.id}
-              className="parchment-card p-4 rounded-xl border border-[#C5A059]/30 space-y-2 shadow-sm"
+              className="parchment-card p-4 rounded-xl border border-[#C5A059]/30 space-y-2 shadow-sm bg-[#131822]"
             >
               <div className="flex items-start space-x-2">
                 <span className="w-5 h-5 rounded-full bg-[#C5A059]/20 text-[#C5A059] flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">
                   {q.id}
                 </span>
                 <div>
-                  <h4 className="font-serif-heading text-xs font-bold text-[#2D3436]">
+                  <h4 className="font-serif-heading text-xs font-bold text-[#E2E8F0]">
                     {q.question}
                   </h4>
-                  <p className="text-[11px] text-gray-500 italic mt-0.5 font-cursive">
+                  <p className="text-[11px] text-gray-400 italic mt-0.5 font-cursive">
                     {q.context}
                   </p>
                 </div>
@@ -85,7 +85,7 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
 
               {/* Editable Answer Box */}
               <div className="mt-2 pt-2 border-t border-[#C5A059]/20">
-                <label className="text-[10px] text-gray-600 font-medium block mb-1">
+                <label className="text-[10px] text-gray-400 font-medium block mb-1">
                   {lang === 'it' ? 'Annotazioni e valutazioni dell\'Operatore:' : 'Operator\'s evaluation notes:'}
                 </label>
                 <textarea
@@ -93,7 +93,7 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
                   value={answers[q.id] || ''}
                   onChange={(e) => handleAnswerChange(q.id, e.target.value)}
                   placeholder={lang === 'it' ? 'Inserisci le note o i riscontri dell\'operatore...' : 'Type operator\'s notes...'}
-                  className="w-full p-2.5 bg-white text-xs text-[#2D3436] rounded-lg border border-gray-200 focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] outline-none transition resize-none"
+                  className="w-full p-2.5 bg-[#1A202C] text-xs text-[#E2E8F0] rounded-lg border border-gray-700 focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] outline-none transition resize-none placeholder-gray-500"
                 />
               </div>
             </div>
@@ -104,8 +104,8 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
       {/* Section 2: Interactive Risk Matrix */}
       <div className="space-y-3 pt-2">
         <div className="flex items-center justify-between px-1">
-          <h3 className="font-serif-heading text-xs font-bold uppercase text-[#2D3436] tracking-wider flex items-center space-x-1.5">
-            <AlertOctagon className="w-4 h-4 text-[#A93226]" />
+          <h3 className="font-serif-heading text-xs font-bold uppercase text-[#DFC08D] tracking-wider flex items-center space-x-1.5">
+            <AlertOctagon className="w-4 h-4 text-[#EF4444]" />
             <span>{lang === 'it' ? 'Matrice dei Rischi Operativi' : 'Operational Risk Matrix'}</span>
           </h3>
 
@@ -115,8 +115,8 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
               onClick={() => setFilterSeverity('all')}
               className={`px-2 py-0.5 rounded-full transition ${
                 filterSeverity === 'all'
-                  ? 'bg-[#2D3436] text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-[#C5A059] text-white'
+                  : 'bg-[#1A202C] text-gray-300 hover:bg-gray-800'
               }`}
             >
               Tutti
@@ -126,7 +126,7 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
               className={`px-2 py-0.5 rounded-full transition ${
                 filterSeverity === 'Alta'
                   ? 'bg-red-600 text-white'
-                  : 'bg-red-100 text-red-700 hover:bg-red-200'
+                  : 'bg-red-950/60 text-red-300 hover:bg-red-900/80 border border-red-700/40'
               }`}
             >
               Alta
@@ -136,7 +136,7 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
               className={`px-2 py-0.5 rounded-full transition ${
                 filterSeverity === 'Media'
                   ? 'bg-amber-600 text-white'
-                  : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+                  : 'bg-amber-950/60 text-amber-300 hover:bg-amber-900/80 border border-amber-700/40'
               }`}
             >
               Media
@@ -152,7 +152,7 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
             return (
               <div
                 key={risk.id}
-                className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm space-y-2 relative overflow-hidden"
+                className="bg-[#131822] p-4 rounded-xl border border-[#C5A059]/30 shadow-sm space-y-2 relative overflow-hidden"
               >
                 <div
                   className={`absolute top-0 left-0 w-1.5 h-full ${
@@ -165,7 +165,7 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
                     <span className="text-[9px] text-gray-400 font-bold uppercase tracking-wider block">
                       {risk.category}
                     </span>
-                    <h4 className="font-serif-heading font-bold text-xs text-[#2D3436]">
+                    <h4 className="font-serif-heading font-bold text-xs text-[#E2E8F0]">
                       {risk.title}
                     </h4>
                   </div>
@@ -173,25 +173,25 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
                   <span
                     className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded-full ${
                       isHigh
-                        ? 'bg-red-100 text-red-700 border border-red-200'
+                        ? 'bg-red-950/80 text-red-300 border border-red-700/60'
                         : isMed
-                        ? 'bg-amber-100 text-amber-800 border border-amber-200'
-                        : 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                        ? 'bg-amber-950/80 text-amber-300 border border-amber-700/60'
+                        : 'bg-emerald-950/80 text-emerald-300 border border-emerald-700/60'
                     }`}
                   >
                     {lang === 'it' ? 'Rischio' : 'Risk'} {risk.impactLevel}
                   </span>
                 </div>
 
-                <p className="pl-2 text-xs text-gray-600 leading-relaxed">
+                <p className="pl-2 text-xs text-gray-300 leading-relaxed">
                   {risk.description}
                 </p>
 
-                <div className="pl-2 pt-2 border-t border-gray-100 text-[11px] bg-gray-50 p-2.5 rounded-lg border border-gray-200/60">
+                <div className="pl-2 pt-2 border-t border-gray-800 text-[11px] bg-[#1A202C] p-2.5 rounded-lg border border-[#C5A059]/20">
                   <span className="font-bold text-[#C5A059] block mb-0.5 uppercase tracking-wider text-[9px]">
                     {lang === 'it' ? 'Protocollo di Mitigazione:' : 'Mitigation Protocol:'}
                   </span>
-                  <p className="text-gray-800 leading-tight">
+                  <p className="text-gray-200 leading-tight">
                     {risk.mitigationStrategy}
                   </p>
                 </div>
@@ -202,7 +202,7 @@ export const RiskTab: React.FC<RiskTabProps> = ({ lang }) => {
       </div>
 
       {/* Ethical Pledge Box */}
-      <div className="p-4 bg-[#2D3436] text-[#FDFBF7] rounded-xl border border-[#C5A059]/40 space-y-2 text-xs">
+      <div className="p-4 bg-[#131822] text-[#FDFBF7] rounded-xl border border-[#C5A059]/40 space-y-2 text-xs shadow-lg">
         <div className="flex items-center space-x-2 text-[#C5A059]">
           <Lock className="w-4 h-4" />
           <h4 className="font-serif-heading font-bold text-xs uppercase tracking-wider">

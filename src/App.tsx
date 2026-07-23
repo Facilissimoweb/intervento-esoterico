@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TabType } from './types';
 import { Header } from './components/Header';
 import { DiagnosisTab } from './components/DiagnosisTab';
@@ -15,17 +15,29 @@ import { FullDossierModal } from './components/FullDossierModal';
 import { PROTOCOL_INFO } from './data/mockData';
 import { Shield, Sparkles, FileText, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { initGoogleTranslate, setGoogleTranslateLang } from './utils/googleTranslate';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('diagnosi');
   const [lang, setLang] = useState<'it' | 'fr'>('it');
   const [isDossierOpen, setIsDossierOpen] = useState(false);
 
+  useEffect(() => {
+    initGoogleTranslate();
+  }, []);
+
+  const handleSetLang = (newLang: 'it' | 'fr') => {
+    setLang(newLang);
+    setGoogleTranslateLang(newLang);
+  };
+
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#2D3436] flex flex-col font-sans selection:bg-[#C5A059]/20">
-      
+    <div className="min-h-screen bg-[#0B0E14] text-[#E2E8F0] flex flex-col font-sans selection:bg-[#C5A059]/30">
+      {/* Hidden Google Translate Target Element */}
+      <div id="google_translate_element" className="hidden pointer-events-none" aria-hidden="true" />
+
       {/* Mobile Frame Container */}
-      <div className="w-full max-w-md mx-auto min-h-screen flex flex-col bg-[#FDFBF7] relative shadow-2xl border-x border-[#C5A059]/15">
+      <div className="w-full max-w-md mx-auto min-h-screen flex flex-col bg-[#0B0E14] relative shadow-2xl border-x border-[#C5A059]/20">
         
         {/* Top Header Navigation */}
         <Header
@@ -33,7 +45,7 @@ export default function App() {
           setActiveTab={setActiveTab}
           onOpenFullDossier={() => setIsDossierOpen(true)}
           lang={lang}
-          setLang={setLang}
+          setLang={handleSetLang}
         />
 
         {/* Main Content Area */}
@@ -108,12 +120,12 @@ export default function App() {
                 transition={{ duration: 0.2 }}
                 className="space-y-4"
               >
-                <div className="parchment-card p-6 rounded-2xl border border-[#C5A059]/40 text-center space-y-3">
+                <div className="parchment-card p-6 rounded-2xl border border-[#C5A059]/40 text-center space-y-3 bg-[#131822]">
                   <Shield className="w-12 h-12 text-[#C5A059] mx-auto animate-bounce" />
-                  <h2 className="font-serif-heading text-lg font-bold uppercase text-[#2D3436]">
+                  <h2 className="font-serif-heading text-lg font-bold uppercase text-[#DFC08D]">
                     {lang === 'it' ? 'Fascicolo Completo Stampabile' : 'Dossier Complet Imprimable'}
                   </h2>
-                  <p className="text-xs text-gray-600 leading-relaxed">
+                  <p className="text-xs text-gray-300 leading-relaxed">
                     {lang === 'it'
                       ? 'Accedi alla versione integrale e formattata della relazione operativa da leggere o stampare in formato A4.'
                       : 'Accédez à la version intégrale et formatée du rapport opérationnel à lire ou à imprimer au format A4.'}
@@ -142,3 +154,4 @@ export default function App() {
     </div>
   );
 }
+

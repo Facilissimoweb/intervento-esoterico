@@ -55,24 +55,24 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
   return (
     <div className="space-y-6">
       {/* Intro Header */}
-      <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/30 relative overflow-hidden">
+      <div className="parchment-card p-5 rounded-2xl border border-[#C5A059]/30 relative overflow-hidden bg-[#131822]">
         <div className="flex items-center space-x-2 text-[#C5A059] mb-1.5">
           <Calendar className="w-5 h-5" />
-          <span className="font-serif-heading font-bold text-xs uppercase tracking-widest">
+          <span className="font-serif-heading font-bold text-xs uppercase tracking-widest text-[#C5A059]">
             {lang === 'it' ? 'Cronoprogramma Operativo Lunare' : 'Planning Opérationnel Lunaire'}
           </span>
         </div>
-        <h2 className="font-serif-heading text-xl text-[#2D3436] font-extrabold uppercase tracking-tight">
+        <h2 className="font-serif-heading text-xl text-[#DFC08D] font-extrabold uppercase tracking-tight">
           {lang === 'it' ? 'Calendario dell\'Intervento' : 'Calendrier de l\'Intervention'}
         </h2>
-        <p className="text-xs text-[#2D3436]/80 mt-2 leading-relaxed">
+        <p className="text-xs text-gray-300 mt-2 leading-relaxed">
           {lang === 'it'
             ? 'L\'intervento rispetta la meccanica celeste delle fasi lunari tra Luglio e Agosto per garantire la massima efficacia ed evitare reazioni avverse.'
             : 'L\'intervention respecte la mécanique céleste des phases lunaires entre Juillet et Août pour garantir une efficacité maximale.'}
         </p>
 
         {/* Live Countdown Box */}
-        <div className="mt-4 p-3 bg-[#2D3436] text-[#FDFBF7] rounded-xl border border-[#C5A059]/40 flex items-center justify-between">
+        <div className="mt-4 p-3 bg-[#1A202C] text-[#FDFBF7] rounded-xl border border-[#C5A059]/40 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Clock className="w-4 h-4 text-[#C5A059] animate-spin" style={{ animationDuration: '6s' }} />
             <div>
@@ -84,15 +84,15 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
           </div>
 
           <div className="flex space-x-1.5 font-mono text-center">
-            <div className="bg-black/40 px-2 py-1 rounded border border-[#C5A059]/20">
+            <div className="bg-black/60 px-2 py-1 rounded border border-[#C5A059]/30">
               <span className="text-xs font-bold text-[#C5A059]">{timeLeft.days}</span>
               <span className="text-[8px] text-gray-400 block">{lang === 'it' ? 'g' : 'j'}</span>
             </div>
-            <div className="bg-black/40 px-2 py-1 rounded border border-[#C5A059]/20">
+            <div className="bg-black/60 px-2 py-1 rounded border border-[#C5A059]/30">
               <span className="text-xs font-bold text-[#C5A059]">{timeLeft.hours}</span>
               <span className="text-[8px] text-gray-400 block">h</span>
             </div>
-            <div className="bg-black/40 px-2 py-1 rounded border border-[#C5A059]/20">
+            <div className="bg-black/60 px-2 py-1 rounded border border-[#C5A059]/30">
               <span className="text-xs font-bold text-[#C5A059]">{timeLeft.minutes}</span>
               <span className="text-[8px] text-gray-400 block">m</span>
             </div>
@@ -103,7 +103,7 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
       {/* Phase Cards Slider / Tabs */}
       <div className="space-y-3">
         <div className="flex items-center justify-between px-1">
-          <h3 className="font-serif-heading text-xs font-bold uppercase text-[#2D3436] tracking-wider">
+          <h3 className="font-serif-heading text-xs font-bold uppercase text-[#DFC08D] tracking-wider">
             {lang === 'it' ? 'Fasi di Intervento (36 Giorni)' : '4 Intervention Phases'}
           </h3>
           <span className="text-[10px] text-[#C5A059] font-semibold">
@@ -121,8 +121,8 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
                 onClick={() => setSelectedPhaseId(phase.id)}
                 className={`p-3 rounded-xl text-left border transition-all duration-200 relative overflow-hidden ${
                   isSelected
-                    ? 'bg-[#2D3436] text-[#FDFBF7] border-[#C5A059] shadow-lg ring-1 ring-[#C5A059]/40'
-                    : 'bg-white text-[#2D3436] border-[#C5A059]/20 hover:border-[#C5A059]/50'
+                    ? 'bg-[#1A202C] text-[#FDFBF7] border-[#C5A059] shadow-lg ring-1 ring-[#C5A059]/40'
+                    : 'bg-[#131822] text-[#E2E8F0] border-[#C5A059]/30 hover:border-[#C5A059]/50'
                 }`}
               >
                 {isSelected && (
@@ -133,7 +133,7 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
                     className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                       isSelected
                         ? 'bg-[#C5A059] text-white'
-                        : 'bg-[#F4EFE6] text-[#C5A059]'
+                        : 'bg-[#1A202C] text-[#C5A059] border border-[#C5A059]/30'
                     }`}
                   >
                     {phase.code}
@@ -144,10 +144,10 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
                   </div>
                 </div>
 
-                <h4 className="font-serif-heading font-bold text-xs truncate mt-1">
+                <h4 className="font-serif-heading font-bold text-xs truncate mt-1 text-[#E2E8F0]">
                   {phase.title}
                 </h4>
-                <p className="text-[10px] opacity-75 mt-0.5 font-medium">
+                <p className="text-[10px] opacity-75 mt-0.5 font-medium text-gray-400">
                   {phase.dates}
                 </p>
               </button>
@@ -162,17 +162,17 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
-        className="parchment-card p-5 rounded-2xl border border-[#C5A059]/40 space-y-4 shadow-md"
+        className="parchment-card p-5 rounded-2xl border border-[#C5A059]/40 space-y-4 shadow-md bg-[#131822]"
       >
-        <div className="flex justify-between items-start border-b border-[#C5A059]/20 pb-3">
+        <div className="flex justify-between items-start border-b border-[#C5A059]/30 pb-3">
           <div>
             <span className="text-[10px] text-[#C5A059] font-bold uppercase tracking-widest block">
               {activePhase.code} • {activePhase.lunarPhase}
             </span>
-            <h3 className="font-serif-heading text-lg font-bold text-[#2D3436] mt-0.5">
+            <h3 className="font-serif-heading text-lg font-bold text-[#DFC08D] mt-0.5">
               {activePhase.title}
             </h3>
-            <p className="text-xs text-[#2D3436]/70 italic mt-0.5 font-cursive">
+            <p className="text-xs text-gray-400 italic mt-0.5 font-cursive">
               {activePhase.subtitle}
             </p>
           </div>
@@ -185,24 +185,24 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
         </div>
 
         {/* Description */}
-        <p className="text-xs text-[#2D3436]/90 leading-relaxed">
+        <p className="text-xs text-gray-300 leading-relaxed">
           {activePhase.description}
         </p>
 
         {/* Protocol Rule for Sara */}
-        <div className="p-3 bg-amber-500/10 border border-amber-500/30 rounded-xl space-y-1">
-          <div className="flex items-center space-x-1.5 text-amber-900 font-bold text-xs">
-            <ShieldCheck className="w-4 h-4 text-amber-700" />
+        <div className="p-3 bg-amber-950/40 border border-amber-500/40 rounded-xl space-y-1">
+          <div className="flex items-center space-x-1.5 text-amber-300 font-bold text-xs">
+            <ShieldCheck className="w-4 h-4 text-amber-400" />
             <span>{lang === 'it' ? 'Regola d\'Oro per Sara' : 'Golden Rule for Sara'}</span>
           </div>
-          <p className="text-[11px] text-amber-900/90 leading-normal">
+          <p className="text-[11px] text-amber-200/90 leading-normal">
             {activePhase.protocolRule}
           </p>
         </div>
 
         {/* Action Checklist */}
         <div className="space-y-2 pt-1">
-          <h4 className="font-serif-heading text-xs font-bold text-[#2D3436] uppercase tracking-wider flex items-center space-x-1.5">
+          <h4 className="font-serif-heading text-xs font-bold text-[#DFC08D] uppercase tracking-wider flex items-center space-x-1.5">
             <Flame className="w-3.5 h-3.5 text-[#C5A059]" />
             <span>{lang === 'it' ? 'Operazioni Cerimoniali Previste' : 'Ceremonial Actions Checklist'}</span>
           </h4>
@@ -217,17 +217,17 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
                   onClick={() => toggleStepCompleted(activePhase.id, idx)}
                   className={`w-full p-2.5 rounded-lg text-left text-xs flex items-center justify-between border transition-all ${
                     isDone
-                      ? 'bg-emerald-50/80 border-emerald-300 text-emerald-900'
-                      : 'bg-white border-gray-200 hover:border-[#C5A059]/40 text-[#2D3436]'
+                      ? 'bg-emerald-950/60 border-emerald-700/60 text-emerald-200'
+                      : 'bg-[#1A202C] border-gray-800 hover:border-[#C5A059]/40 text-gray-200'
                   }`}
                 >
                   <div className="flex items-center space-x-2.5">
                     <CheckCircle2
                       className={`w-4 h-4 flex-shrink-0 ${
-                        isDone ? 'text-emerald-600 fill-emerald-100' : 'text-gray-300'
+                        isDone ? 'text-emerald-400 fill-emerald-950' : 'text-gray-500'
                       }`}
                     />
-                    <span className={isDone ? 'line-through text-emerald-800' : ''}>
+                    <span className={isDone ? 'line-through text-emerald-300' : ''}>
                       {action}
                     </span>
                   </div>
@@ -242,12 +242,12 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({ lang }) => {
       </motion.div>
 
       {/* Guidelines Box */}
-      <div className="p-4 bg-white rounded-xl border border-[#C5A059]/20 text-xs space-y-2 shadow-sm">
+      <div className="p-4 bg-[#131822] rounded-xl border border-[#C5A059]/30 text-xs space-y-2 shadow-sm">
         <div className="flex items-center space-x-2 text-[#C5A059] font-bold">
           <Sparkles className="w-4 h-4" />
           <span>{lang === 'it' ? 'Mantenimento del Silenzio Ritualistico' : 'Ritual Silence Protocol'}</span>
         </div>
-        <p className="text-[#2D3436]/80 text-[11px] leading-relaxed">
+        <p className="text-gray-300 text-[11px] leading-relaxed">
           {lang === 'it'
             ? 'Durante l\'intero ciclo di 36 giorni, Sara deve astenersi dal fare riferimento diretto a questo fascicolo o ai rituali in corso con Mahdi o persone terze. La riservatezza garantisce l\'integrità del campo operante.'
             : 'Sara must maintain total secrecy regarding this document and ongoing work to preserve energy field integrity.'}
