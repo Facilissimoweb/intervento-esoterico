@@ -96,28 +96,6 @@ export const Header: React.FC<HeaderProps> = ({ currentTab, setActiveTab, onOpen
 
           {/* Right Actions */}
           <div className="flex items-center space-x-1.5">
-            {/* Language Pill */}
-            <div className="flex bg-[#1A202C] p-0.5 rounded-full border border-[#C5A059]/30 text-[10px]">
-              <button
-                onClick={() => setLang('it')}
-                className={`px-2 py-0.5 rounded-full font-bold transition ${
-                  lang === 'it' ? 'bg-[#C5A059] text-white shadow' : 'text-gray-400 hover:text-white'
-                }`}
-                title="Italiano"
-              >
-                IT
-              </button>
-              <button
-                onClick={() => setLang('fr')}
-                className={`px-2 py-0.5 rounded-full font-bold transition ${
-                  lang === 'fr' ? 'bg-[#C5A059] text-white shadow' : 'text-gray-400 hover:text-white'
-                }`}
-                title="Français"
-              >
-                FR
-              </button>
-            </div>
-
             {/* Info Trigger */}
             <button
               onClick={() => setShowInfoModal(true)}
